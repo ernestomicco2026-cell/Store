@@ -1,0 +1,41 @@
+name: Aggiorna store
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # ogni ora
+  workflow_dispatch:        # avvio a mano dalla scheda Actions
+  push:
+    paths:
+      - fonti.json
+      - tools/aggiorna.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aggiorna-store
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Controlla le app
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/aggiorna.py
+
+      - name: Salva le novita'
+        run: |
+          git add -A apk apps.json
+          if git diff --cached --quiet; then
+            echo "Nessuna novita'"
+            exit 0
+          fi
+          git config user.name "ernestomicco2026-cell"
+          git config user.email "ernesto.micco@gmail.com"
+          git commit -m "Aggiornamento"
+          git push
