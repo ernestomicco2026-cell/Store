@@ -3,71 +3,73 @@
   "apps": [
     {
       "id": "launcher-swi68",
-      "versione": "0.9.6",
-      "file": "apk/launcher-swi68/MG4Launcher-0.9.6.apk",
-      "dimensione": 635781,
-      "sha256": "7389cd1b4137e840ef3ca98e6e779ce37898e2c47f3b828f241c53ae237aa0ba",
-      "note": "Avvio sicuro: il launcher diventa la home del sistema e parte sempre all'accensione; avvio più affidabile; loghi di Australia e Sud America e paese scritto a mano; CarPlay/Android Auto con un tocco e icona nella barra; sedili dal riquadro Comfort corretti; pannello clima di sistema chiuso sopra MG4 Clima.",
+      "versione": "0.9.7",
+      "file": "apk/launcher-swi68/MG4Launcher-0.9.7.apk",
+      "dimensione": 640029,
+      "sha256": "f0bc70616d37724ae147ce2d35ade8d2857b1441243c27a32a9ab0653ca5ce95",
+      "note": "Dimensione separata per la schermata App (icone e testo più grandi). Il log del dongle registra se ricompare dopo il reset. Certificati di sicurezza Sectigo/USERTrust aggiunti.",
+      "pacchetto": "com.mg4.launcher",
+      "codice_versione": 34,
       "nome": "MG4 Launcher",
       "per": [
         "SWI68"
       ],
-      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI68",
-      "pacchetto": "com.mg4.launcher",
-      "codice_versione": 33
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI68"
     },
     {
       "id": "launcher-swi69",
-      "versione": "0.3.9",
-      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.3.9.apk",
-      "dimensione": 618900,
-      "sha256": "2410066eebe73422c445958ac69cd8f6f376530ccc2ec7950b863f88799d10e8",
-      "note": "Avvio sicuro: il launcher diventa la home del sistema e parte sempre all'accensione; avvio più affidabile; loghi di Australia e Sud America e paese scritto a mano; CarPlay/Android Auto con un tocco e icona nella barra.",
+      "versione": "0.3.10",
+      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.3.10.apk",
+      "dimensione": 627244,
+      "sha256": "02d3363097b1e3a5317d4b0f4d716338d3316357ad061a99279202728922ed16",
+      "note": "Dimensione separata per la schermata App (icone e testo più grandi). Il log del dongle registra se ricompare dopo il reset. Certificati di sicurezza Sectigo/USERTrust aggiunti.",
+      "pacchetto": "com.mg4.launcher",
+      "codice_versione": 30,
       "nome": "MG4 Launcher",
       "per": [
         "SWI69"
       ],
-      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI69",
-      "pacchetto": "com.mg4.launcher",
-      "codice_versione": 29
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI69"
     },
     {
       "id": "launcher-swi132",
-      "versione": "0.2.6",
-      "file": "apk/launcher-swi132/MG4Launcher-SWI132-0.2.6.apk",
-      "dimensione": 622996,
-      "sha256": "30b702f402cdeeed9215f5def5138db42e13ff8b7700e3eabb343b481fd09e37",
-      "note": "Avvio sicuro: il launcher diventa la home del sistema e parte sempre all'accensione; avvio più affidabile; loghi di Australia e Sud America e paese scritto a mano; CarPlay/Android Auto con un tocco e icona nella barra.",
+      "versione": "0.2.7",
+      "file": "apk/launcher-swi132/MG4Launcher-SWI132-0.2.7.apk",
+      "dimensione": 631340,
+      "sha256": "fa24bca7c86acaef636755dc0505c613c7d731ce91c4609268442289f4a8afa0",
+      "note": "Dimensione separata per la schermata App (icone e testo più grandi). Il log del dongle registra se ricompare dopo il reset. Certificati di sicurezza Sectigo/USERTrust aggiunti. Tolto il pulsante 360° (non presente su questa auto).",
+      "pacchetto": "com.mg4.launcher",
+      "codice_versione": 30,
       "nome": "MG4 Launcher",
       "per": [
         "SWI132"
       ],
-      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI132",
-      "pacchetto": "com.mg4.launcher",
-      "codice_versione": 29
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI132"
     },
     {
       "id": "launcher-swi133",
-      "versione": "0.2.6",
-      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.2.6.apk",
-      "dimensione": 619397,
-      "sha256": "69ace55fedf4e5a7c23a6d61848b3f0ed6f80b2a0f59ad91a26470b83653c1fc",
-      "note": "Avvio sicuro: il launcher diventa la home del sistema e parte sempre all'accensione; avvio più affidabile; loghi di Australia e Sud America e paese scritto a mano; CarPlay/Android Auto con un tocco e icona nella barra; sedili dal riquadro Comfort corretti; pannello clima di sistema chiuso sopra MG4 Clima.",
+      "versione": "0.2.7",
+      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.2.7.apk",
+      "dimensione": 623645,
+      "sha256": "9db6612f700f48916774b1020601c28215cc0755657d4eefdf3a288cfe5fc56c",
+      "note": "Dimensione separata per la schermata App (icone e testo più grandi). Il log del dongle registra se ricompare dopo il reset. Certificati di sicurezza Sectigo/USERTrust aggiunti.",
+      "pacchetto": "com.mg4.launcher",
+      "codice_versione": 31,
       "nome": "MG4 Launcher",
       "per": [
         "SWI133"
       ],
-      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI133",
-      "pacchetto": "com.mg4.launcher",
-      "codice_versione": 30
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI133"
     },
     {
       "id": "clima",
-      "versione": "1.2.0",
-      "file": "apk/clima/MG4Clima-1.2.0.apk",
-      "dimensione": 411935,
-      "sha256": "e6def5d8f10db0e8dc75e9bf2e0f4d3394022e9c51f9bdaee95baf32cb8ae55b",
-      "note": "Cruscotto disegnato e realistico tra cui scegliere, con il volante che si scalda in arancione e l'aria che esce dalle bocchette vere. Colore della temperatura graduale (blu verso i 16°, arancione dai 26°). Tema giorno e notte come il launcher. Impostazioni del clima originale: intensità AUTO (tocco su AUTO per cambiarla), segui ECO e lunotto automatico. Multilingua come il launcher.",
+      "versione": "1.3.0",
+      "file": "apk/clima/MG4Clima-1.3.0.apk",
+      "dimensione": 432415,
+      "sha256": "e40fabbe6f14dd91416c1fd3b2cf58b9c7722bb235b0d5bd66dc12f3f9017a20",
+      "note": "Verifica dell'app clima originale: con una versione nuova MG4 Clima chiede di verificarla prima di sostituirla. Modalità officina (1, 3 o 7 giorni). Chiusura con swipe, dal basso o dall'alto. Disinstallazione da Strumenti. Stile realistico sempre scuro; cambio giorno/notte aggiornato subito con l'app aperta.",
+      "pacchetto": "com.mg4.clima",
+      "codice_versione": 130,
       "nome": "MG4 Clima",
       "per": [
         "SWI68",
@@ -75,9 +77,7 @@
         "SWI132",
         "SWI133"
       ],
-      "repo": "ernestomicco2026-cell/HVAC-Clima-MG4",
-      "pacchetto": "com.mg4.clima",
-      "codice_versione": 120
+      "repo": "ernestomicco2026-cell/HVAC-Clima-MG4"
     },
     {
       "id": "voice",
