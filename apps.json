@@ -1,1 +1,144 @@
-{ "versione_catalogo": 1, "apps": [] }
+{
+  "versione_catalogo": 1,
+  "apps": [
+    {
+      "id": "launcher-swi68",
+      "versione": "0.9.6",
+      "file": "apk/launcher-swi68/MG4Launcher-0.9.6.apk",
+      "dimensione": 635781,
+      "sha256": "7389cd1b4137e840ef3ca98e6e779ce37898e2c47f3b828f241c53ae237aa0ba",
+      "note": "Avvio sicuro: il launcher diventa la home del sistema e parte sempre all'accensione; avvio più affidabile; loghi di Australia e Sud America e paese scritto a mano; CarPlay/Android Auto con un tocco e icona nella barra; sedili dal riquadro Comfort corretti; pannello clima di sistema chiuso sopra MG4 Clima.",
+      "nome": "MG4 Launcher",
+      "per": [
+        "SWI68"
+      ],
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI68"
+    },
+    {
+      "id": "launcher-swi69",
+      "versione": "0.3.9",
+      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.3.9.apk",
+      "dimensione": 618900,
+      "sha256": "2410066eebe73422c445958ac69cd8f6f376530ccc2ec7950b863f88799d10e8",
+      "note": "Avvio sicuro: il launcher diventa la home del sistema e parte sempre all'accensione; avvio più affidabile; loghi di Australia e Sud America e paese scritto a mano; CarPlay/Android Auto con un tocco e icona nella barra.",
+      "nome": "MG4 Launcher",
+      "per": [
+        "SWI69"
+      ],
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI69"
+    },
+    {
+      "id": "launcher-swi132",
+      "versione": "0.2.6",
+      "file": "apk/launcher-swi132/MG4Launcher-SWI132-0.2.6.apk",
+      "dimensione": 622996,
+      "sha256": "30b702f402cdeeed9215f5def5138db42e13ff8b7700e3eabb343b481fd09e37",
+      "note": "Avvio sicuro: il launcher diventa la home del sistema e parte sempre all'accensione; avvio più affidabile; loghi di Australia e Sud America e paese scritto a mano; CarPlay/Android Auto con un tocco e icona nella barra.",
+      "nome": "MG4 Launcher",
+      "per": [
+        "SWI132"
+      ],
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI132"
+    },
+    {
+      "id": "launcher-swi133",
+      "versione": "0.2.6",
+      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.2.6.apk",
+      "dimensione": 619397,
+      "sha256": "69ace55fedf4e5a7c23a6d61848b3f0ed6f80b2a0f59ad91a26470b83653c1fc",
+      "note": "Avvio sicuro: il launcher diventa la home del sistema e parte sempre all'accensione; avvio più affidabile; loghi di Australia e Sud America e paese scritto a mano; CarPlay/Android Auto con un tocco e icona nella barra; sedili dal riquadro Comfort corretti; pannello clima di sistema chiuso sopra MG4 Clima.",
+      "nome": "MG4 Launcher",
+      "per": [
+        "SWI133"
+      ],
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI133"
+    },
+    {
+      "id": "clima",
+      "versione": "1.2.0",
+      "file": "apk/clima/MG4Clima-1.2.0.apk",
+      "dimensione": 411935,
+      "sha256": "e6def5d8f10db0e8dc75e9bf2e0f4d3394022e9c51f9bdaee95baf32cb8ae55b",
+      "note": "Cruscotto disegnato e realistico tra cui scegliere, con il volante che si scalda in arancione e l'aria che esce dalle bocchette vere. Colore della temperatura graduale (blu verso i 16°, arancione dai 26°). Tema giorno e notte come il launcher. Impostazioni del clima originale: intensità AUTO (tocco su AUTO per cambiarla), segui ECO e lunotto automatico. Multilingua come il launcher.",
+      "nome": "MG4 Clima",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ],
+      "repo": "ernestomicco2026-cell/HVAC-Clima-MG4"
+    },
+    {
+      "id": "voice",
+      "versione": "1.0.0-beta.2",
+      "file": "apk/voice/MG4Voice-1.0.0-beta.2.apk",
+      "dimensione": 13619975,
+      "sha256": "96cd90e72e54698f59b6d9c60926e27370122e75e5f1bbedf86818bff9987737",
+      "note": "",
+      "nome": "MG4 Voice",
+      "per": [
+        "SWI68"
+      ],
+      "repo": "ernestomicco2026-cell/Mg4-Voice"
+    },
+    {
+      "id": "radio-fix",
+      "versione": "1.3",
+      "file": "apk/radio-fix/RadioService_radiofix4_1.0.0_EH32_SOP_2502201114.apk",
+      "dimensione": 2672322,
+      "sha256": "c08e59e8fefe8df68f491afa9a9329b75364543e973ec226722b8a619866ac54",
+      "note": "[![Offrimi un caffè con PayPal](https://img.shields.io/badge/Offrimi%20un%20caff%C3%A8-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/pool/9tv7fQ36nA?sr=wccr) [![Buy me a coffee with PayPal](https://img.shields.io/badge/Buy%20me%20a%20coffee-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/pool/9tv7fQ36nA?sr=wccr) Correzioni al **servizio radio originale** dell'MG4 con infotainment **SAIC 1.0** (EH32 EU). > ⚠️ **Solo per SAIC 1.0.** Non è per le versioni **Color Radio** né per il firmware **EH32 LL** > (per quello c'",
+      "nome": "MG4 Radio Fix",
+      "per": [
+        "SWI68"
+      ],
+      "repo": "ernestomicco2026-cell/MG4-Radio-Fix-SAIC1.0"
+    },
+    {
+      "id": "radio-fix-remover",
+      "versione": "1.3",
+      "file": "apk/radio-fix-remover/RadioFixRemover_1.0.apk",
+      "dimensione": 9215,
+      "sha256": "41105e000222c3a9e1f7f42b8f8f527171eb42b13a94237648d25078171bd179",
+      "note": "[![Offrimi un caffè con PayPal](https://img.shields.io/badge/Offrimi%20un%20caff%C3%A8-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/pool/9tv7fQ36nA?sr=wccr) [![Buy me a coffee with PayPal](https://img.shields.io/badge/Buy%20me%20a%20coffee-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/pool/9tv7fQ36nA?sr=wccr) Correzioni al **servizio radio originale** dell'MG4 con infotainment **SAIC 1.0** (EH32 EU). > ⚠️ **Solo per SAIC 1.0.** Non è per le versioni **Color Radio** né per il firmware **EH32 LL** > (per quello c'",
+      "nome": "Radio Fix Remover",
+      "per": [
+        "SWI68"
+      ],
+      "repo": "ernestomicco2026-cell/MG4-Radio-Fix-SAIC1.0"
+    },
+    {
+      "id": "taskmanager-system",
+      "versione": "1.3",
+      "file": "apk/taskmanager-system/MG4-TaskManager-system.apk",
+      "dimensione": 75625,
+      "sha256": "4d62d7e84d8d8ac143087cf027d9cc12b007a084fc4e8af6255cf4f11f0a6068",
+      "note": "<!-- lang:it --> ### 🇮🇹 Italiano - **Disinstalla le app** che hai installato tu: pulsante 🗑 sulla scheda dell'app oppure **Impostazioni → Disinstalla app** (elenco di tutte le app installate da te, anche chiuse) - Chiede sempre conferma; le app di sistema non si possono disinstallare - Edizione di sistema o con ADB: rimozione immediata. Edizione normale senza ADB: conferma nella schermata di Android --- <!-- lang:en --> ### 🇬🇧 English - **Uninstall the apps** you installed: 🗑 button on the app card or **Settings → Uninstall apps** (list of all the apps you installed, closed ones included) - Al",
+      "nome": "MG4 Task Manager (sistema)",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ],
+      "repo": "ernestomicco2026-cell/mg4-taskmanager"
+    },
+    {
+      "id": "taskmanager",
+      "versione": "1.3",
+      "file": "apk/taskmanager/MG4-TaskManager.apk",
+      "dimensione": 75480,
+      "sha256": "e971f92501368cf843b1aa2132cda887d650143c9b7fca88484f16e066383b08",
+      "note": "<!-- lang:it --> ### 🇮🇹 Italiano - **Disinstalla le app** che hai installato tu: pulsante 🗑 sulla scheda dell'app oppure **Impostazioni → Disinstalla app** (elenco di tutte le app installate da te, anche chiuse) - Chiede sempre conferma; le app di sistema non si possono disinstallare - Edizione di sistema o con ADB: rimozione immediata. Edizione normale senza ADB: conferma nella schermata di Android --- <!-- lang:en --> ### 🇬🇧 English - **Uninstall the apps** you installed: 🗑 button on the app card or **Settings → Uninstall apps** (list of all the apps you installed, closed ones included) - Al",
+      "nome": "MG4 Task Manager",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ],
+      "repo": "ernestomicco2026-cell/mg4-taskmanager"
+    }
+  ]
+}
