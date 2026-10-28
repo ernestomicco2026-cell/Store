@@ -3,7 +3,7 @@
 nei repository GitHub e copia gli APK nuovi in apk/<id>/, poi riscrive apps.json.
 Se un'app da' errore resta la versione precedente e si passa alla successiva."""
 
-import hashlib, json, os, re, sys, urllib.request, urllib.error
+import glob, hashlib, json, os, re, subprocess, sys, tempfile, urllib.request, urllib.error
 
 API = "https://api.github.com"
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
@@ -33,6 +33,30 @@ def chiave_versione(v):
 def note_brevi(t):
     t = re.sub(r"\s+", " ", (t or "")).strip()
     return t[:600]
+
+
+def trova_aapt2():
+    for base in (os.environ.get("ANDROID_HOME"), os.environ.get("ANDROID_SDK_ROOT"), "/usr/local/lib/android/sdk"):
+        if base:
+            c = sorted(glob.glob(os.path.join(base, "build-tools", "*", "aapt2")), key=chiave_versione)
+            if c:
+                return c[-1]
+    return os.environ.get("AAPT2")
+
+
+AAPT2 = trova_aapt2()
+
+
+def pacchetto(file_apk):
+    """Nome del pacchetto e versione interna dell'APK (servono all'app per sapere cosa e' installato)."""
+    if not AAPT2:
+        return {}
+    try:
+        out = subprocess.run([AAPT2, "dump", "badging", file_apk], capture_output=True, text=True, timeout=60).stdout
+        m = re.search(r"package: name='([^']+)' versionCode='(\d+)'", out)
+        return {"pacchetto": m.group(1), "codice_versione": int(m.group(2))} if m else {}
+    except Exception:
+        return {}
 
 
 # ---------- le tre fonti ----------
@@ -108,8 +132,15 @@ def main():
                 voce = {"id": a["id"], "versione": info["versione"], "file": file_rel,
                         "dimensione": len(dati), "sha256": hashlib.sha256(dati).hexdigest(),
                         "note": info["note"]}
+                voce.update(pacchetto(file_abs))
                 print(f"NUOVA  {a['id']} {info['versione']}")
+            if "pacchetto" not in voce:
+                voce.update(pacchetto(file_abs))
             voce.update({"nome": a["nome"], "per": a.get("per", []), "repo": a["repo"]})
+            if a.get("richiede"):
+                voce["richiede"] = a["richiede"]
+            else:
+                voce.pop("richiede", None)
             nuovo.append(voce)
         except Exception as e:
             errori += 1

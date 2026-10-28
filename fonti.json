@@ -1,5 +1,5 @@
 {
-  "_info": "Elenco delle app dello store. Per aggiungere un'app copia un blocco e cambia i valori. tipo: json = releases/latest.json del repo; cartella = APK piu' recente nella cartella releases/; release = file allegato alle Release di GitHub. per = versioni del software su cui funziona.",
+  "_info": "Elenco delle app dello store. Per aggiungere un'app copia un blocco e cambia i valori. tipo: json = releases/latest.json del repo; cartella = APK piu' recente nella cartella releases/; release = file allegato alle Release di GitHub. per = versioni del software su cui funziona. richiede = (facoltativo) l'app compare solo se sull'auto c'e' quel pacchetto con quella versione.",
   "app": [
     { "id": "launcher-swi68",  "nome": "MG4 Launcher",            "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI68",  "tipo": "json", "per": ["SWI68"] },
     { "id": "launcher-swi69",  "nome": "MG4 Launcher",            "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI69",  "tipo": "json", "per": ["SWI69"] },
@@ -9,9 +9,6 @@
     { "id": "clima",           "nome": "MG4 Clima",               "repo": "ernestomicco2026-cell/HVAC-Clima-MG4", "tipo": "json", "chiave": "MG4Clima", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
     { "id": "voice",           "nome": "MG4 Voice",               "repo": "ernestomicco2026-cell/Mg4-Voice", "tipo": "cartella", "file": "^MG4Voice-(.+)\\.apk$", "per": ["SWI68"] },
-
-    { "id": "radio-fix",       "nome": "MG4 Radio Fix",           "repo": "ernestomicco2026-cell/MG4-Radio-Fix-SAIC1.0", "tipo": "release", "file": "^(?!.*[Rr]emover).*\\.apk$", "per": ["SWI68"] },
-    { "id": "radio-fix-remover", "nome": "Radio Fix Remover",     "repo": "ernestomicco2026-cell/MG4-Radio-Fix-SAIC1.0", "tipo": "release", "file": "[Rr]emover.*\\.apk$",      "per": ["SWI68"] },
 
     { "id": "taskmanager-system", "nome": "MG4 Task Manager (sistema)", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
     { "id": "taskmanager",        "nome": "MG4 Task Manager",           "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager\\.apk$",        "per": ["SWI68", "SWI69", "SWI132", "SWI133"] }
