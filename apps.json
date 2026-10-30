@@ -63,13 +63,13 @@
     },
     {
       "id": "clima",
-      "versione": "1.3.1",
-      "file": "apk/clima/MG4Clima-1.3.1.apk",
-      "dimensione": 440607,
-      "sha256": "9de156c7c62551ca7c1ea6ac9140b54ff3cec830861cffcfbdf97f11ec597364",
-      "note": "Chiusura con swipe più affidabile (Automatico, dal pannello o dal bordo, tocco fuori, tasto indietro). Meno lampeggio con l'app clima originale. Pannello clima di sistema: interfaccia letta dal SystemUI (corregge l'errore sulla SWI68 R40). Riconosciuto il software SWI165. Ricircolo rimesso com'era dopo il test. Valori non forniti dall'auto nascosti.",
+      "versione": "1.3.3",
+      "file": "apk/clima/MG4Clima-1.3.3.apk",
+      "dimensione": 456991,
+      "sha256": "d364e5e0001e87ce8e9f6c356026f730a99e16391c1dfac1476016bb1edd9561",
+      "note": "Comandi dal joystick del volante con MG4 Clima aperta (da associare in Strumenti → Prova tasti del volante). Test e verifica: massimo della temperatura un grado alla volta; app clima R63 verificata; software del mercato turco riconosciuto. Ripresa del test se l'auto si muove. Swipe più corto e avviso se l'accessibilità non è attiva.",
       "pacchetto": "com.mg4.clima",
-      "codice_versione": 131,
+      "codice_versione": 133,
       "nome": "MG4 Clima",
       "per": [
         "SWI68",
@@ -81,13 +81,13 @@
     },
     {
       "id": "voice",
-      "versione": "1.0.0-beta.5",
-      "file": "apk/voice/MG4Voice-1.0.0-beta.5.apk",
-      "dimensione": 13624071,
-      "sha256": "3dccab961d61a18f6649094de2e2cf9dc8ce760ff4367d17075e30e2567bec0d",
+      "versione": "1.0.0-beta.6",
+      "file": "apk/voice/MG4Voice-1.0.0-beta.6.apk",
+      "dimensione": 13628167,
+      "sha256": "e1e8584c7521495d5ebff08f23a4097c882e009ea5e269c87a1527f49075eff8",
       "note": "",
       "pacchetto": "com.mg4.voice",
-      "codice_versione": 104,
+      "codice_versione": 105,
       "nome": "MG4 Voice",
       "per": [
         "SWI68"
