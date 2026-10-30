@@ -3,13 +3,13 @@
   "apps": [
     {
       "id": "launcher-swi68",
-      "versione": "0.9.7",
-      "file": "apk/launcher-swi68/MG4Launcher-0.9.7.apk",
-      "dimensione": 640029,
-      "sha256": "f0bc70616d37724ae147ce2d35ade8d2857b1441243c27a32a9ab0653ca5ce95",
-      "note": "Dimensione separata per la schermata App (icone e testo più grandi). Il log del dongle registra se ricompare dopo il reset. Certificati di sicurezza Sectigo/USERTrust aggiunti.",
+      "versione": "0.9.8",
+      "file": "apk/launcher-swi68/MG4Launcher-0.9.8.apk",
+      "dimensione": 652536,
+      "sha256": "db6a4ff5087843b9aece9d7b3cf1be7af62673f716c88caf68f60b5379671f08",
+      "note": "Il riavvio del dongle CarPlay/AA non resetta più i telefoni col cavo, solo i dongle wireless veri. Permesso della velocità, nuovi certificati Sectigo/USERTrust, prima configurazione di Android riconosciuta, niente log da telefoni ed emulatori.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 34,
+      "codice_versione": 35,
       "nome": "MG4 Launcher",
       "per": [
         "SWI68"
@@ -18,13 +18,13 @@
     },
     {
       "id": "launcher-swi69",
-      "versione": "0.3.10",
-      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.3.10.apk",
-      "dimensione": 627244,
-      "sha256": "02d3363097b1e3a5317d4b0f4d716338d3316357ad061a99279202728922ed16",
-      "note": "Dimensione separata per la schermata App (icone e testo più grandi). Il log del dongle registra se ricompare dopo il reset. Certificati di sicurezza Sectigo/USERTrust aggiunti.",
+      "versione": "0.3.11",
+      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.3.11.apk",
+      "dimensione": 635655,
+      "sha256": "ddf5dff5a44631e176c83ebb7fadc02557976f207dcb55d269fecb875a169b33",
+      "note": "Il riavvio del dongle CarPlay/AA non resetta più i telefoni col cavo, solo i dongle wireless veri. Permesso della velocità, nuovi certificati Sectigo/USERTrust, prima configurazione di Android riconosciuta, niente log da telefoni ed emulatori.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 30,
+      "codice_versione": 31,
       "nome": "MG4 Launcher",
       "per": [
         "SWI69"
@@ -33,13 +33,13 @@
     },
     {
       "id": "launcher-swi132",
-      "versione": "0.2.7",
-      "file": "apk/launcher-swi132/MG4Launcher-SWI132-0.2.7.apk",
-      "dimensione": 631340,
-      "sha256": "fa24bca7c86acaef636755dc0505c613c7d731ce91c4609268442289f4a8afa0",
-      "note": "Dimensione separata per la schermata App (icone e testo più grandi). Il log del dongle registra se ricompare dopo il reset. Certificati di sicurezza Sectigo/USERTrust aggiunti. Tolto il pulsante 360° (non presente su questa auto).",
+      "versione": "0.2.8",
+      "file": "apk/launcher-swi132/MG4Launcher-SWI132-0.2.8.apk",
+      "dimensione": 639751,
+      "sha256": "aa501c46464d89675601adf04f54ec05ffc36fb98014dd6297b6ac5d88ce00a3",
+      "note": "Il riavvio del dongle CarPlay/AA non resetta più i telefoni col cavo, solo i dongle wireless veri. Permesso della velocità, nuovi certificati Sectigo/USERTrust, prima configurazione di Android riconosciuta, niente log da telefoni ed emulatori.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 30,
+      "codice_versione": 31,
       "nome": "MG4 Launcher",
       "per": [
         "SWI132"
@@ -48,13 +48,13 @@
     },
     {
       "id": "launcher-swi133",
-      "versione": "0.2.7",
-      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.2.7.apk",
-      "dimensione": 623645,
-      "sha256": "9db6612f700f48916774b1020601c28215cc0755657d4eefdf3a288cfe5fc56c",
-      "note": "Dimensione separata per la schermata App (icone e testo più grandi). Il log del dongle registra se ricompare dopo il reset. Certificati di sicurezza Sectigo/USERTrust aggiunti.",
+      "versione": "0.2.8",
+      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.2.8.apk",
+      "dimensione": 636152,
+      "sha256": "3e0731ed6f2b26363d75a9ad25653247e38c9c3df421f870558770682d3e57bc",
+      "note": "Il riavvio del dongle CarPlay/AA non resetta più i telefoni col cavo, solo i dongle wireless veri. Permesso della velocità, nuovi certificati Sectigo/USERTrust, prima configurazione di Android riconosciuta, niente log da telefoni ed emulatori.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 31,
+      "codice_versione": 32,
       "nome": "MG4 Launcher",
       "per": [
         "SWI133"
