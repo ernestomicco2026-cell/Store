@@ -13,6 +13,6 @@
     { "id": "taskmanager-system", "nome": "MG4 Task Manager (sistema)", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
     { "id": "taskmanager",        "nome": "MG4 Task Manager",           "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager\\.apk$",        "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
-    { "id": "browser", "nome": "Browser", "repo": "", "tipo": "locale", "versione": "1.0.2", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] }
+    { "id": "aptoide", "nome": "Aptoide", "repo": "", "tipo": "locale", "versione": "10.0.0", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] }
   ]
 }
