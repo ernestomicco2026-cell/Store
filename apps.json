@@ -129,6 +129,24 @@
       "repo": "ernestomicco2026-cell/mg4-taskmanager",
       "pacchetto": "it.mg4.taskmanager",
       "codice_versione": 10300
+    },
+    {
+      "id": "browser",
+      "versione": "1.0.2",
+      "file": "apk/browser/MG4Browser-1.0.2.apk",
+      "dimensione": 6212271,
+      "sha256": "376b931673869c0ac6a23fb719a4b642252eae6cab0fd1fc436d182ded4cf396",
+      "note": "",
+      "pacchetto": "com.tommasov.mg4browser",
+      "codice_versione": 3,
+      "nome": "Browser",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ],
+      "repo": ""
     }
   ]
 }
