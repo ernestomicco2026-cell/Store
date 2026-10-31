@@ -98,7 +98,23 @@ def da_release(a):
     raise RuntimeError("nessuna release con il file cercato")
 
 
-FONTI = {"json": da_json, "cartella": da_cartella, "release": da_release}
+def da_locale(a):
+    """APK caricato a mano direttamente nello Store, in apk/<id>/ (resta finche' la voce e' in fonti.json)."""
+    cartella = os.path.join(RADICE, "apk", a["id"])
+    apk = sorted(f for f in os.listdir(cartella) if f.endswith(".apk")) if os.path.isdir(cartella) else []
+    if not apk:
+        raise RuntimeError("nessun APK in apk/" + a["id"])
+    percorso = os.path.join(cartella, apk[-1])
+    versione = a.get("versione", "")
+    if AAPT2 and not versione:
+        out = subprocess.run([AAPT2, "dump", "badging", percorso], capture_output=True, text=True, timeout=60).stdout
+        m = re.search(r"versionName='([^']*)'", out)
+        versione = m.group(1) if m else ""
+    return {"versione": versione or "1", "nome_file": apk[-1], "note": a.get("note", ""),
+            "scarica": lambda: open(percorso, "rb").read()}
+
+
+FONTI = {"json": da_json, "cartella": da_cartella, "release": da_release, "locale": da_locale}
 
 
 def main():
