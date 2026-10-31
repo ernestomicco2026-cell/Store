@@ -131,15 +131,15 @@
       "codice_versione": 10300
     },
     {
-      "id": "browser",
-      "versione": "1.0.2",
-      "file": "apk/browser/MG4Browser-1.0.2.apk",
-      "dimensione": 6212271,
-      "sha256": "376b931673869c0ac6a23fb719a4b642252eae6cab0fd1fc436d182ded4cf396",
+      "id": "aptoide",
+      "versione": "10.0.0",
+      "file": "apk/aptoide/Aptoide-10.0.0.apk",
+      "dimensione": 13074189,
+      "sha256": "cd3a042bb2135040024cdd4e7b0dfd5f2db950e6fc111f529b5e5887fbf7fc47",
       "note": "",
-      "pacchetto": "com.tommasov.mg4browser",
-      "codice_versione": 3,
-      "nome": "Browser",
+      "pacchetto": "cm.aptoide.pt",
+      "codice_versione": 13001,
+      "nome": "Aptoide",
       "per": [
         "SWI68",
         "SWI69",
