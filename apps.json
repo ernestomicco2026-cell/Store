@@ -18,13 +18,13 @@
     },
     {
       "id": "launcher-swi69",
-      "versione": "0.4.0",
-      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.4.0.apk",
+      "versione": "0.4.1",
+      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.4.1.apk",
       "dimensione": 677904,
-      "sha256": "38801ef8301a010709a1981e3d562c1e932181aa763d4460b7701096f5a27b44",
-      "note": "Nuovo pulsante Sblocca presa di ricarica, unità di distanza in miglia, tasto Home che chiude i popup e funziona anche dalle impostazioni dell'auto, nuove icone del clima, impostazioni riorganizzate, pulsante 360 configurabile e Apri più grande per Android Auto/CarPlay.",
+      "sha256": "5ef5fe4362896ca6840a875a09fd0a6819f532b851d98fb2cb262838225c63df",
+      "note": "Sblocca presa di ricarica: parte solo se la presa è bloccata, come l'app originale. Corretta la diagnostica del pulsante fendinebbia di sistema.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 32,
+      "codice_versione": 33,
       "nome": "MG4 Launcher",
       "per": [
         "SWI69"
@@ -33,13 +33,13 @@
     },
     {
       "id": "launcher-swi132",
-      "versione": "0.2.8",
-      "file": "apk/launcher-swi132/MG4Launcher-SWI132-0.2.8.apk",
-      "dimensione": 639751,
-      "sha256": "aa501c46464d89675601adf04f54ec05ffc36fb98014dd6297b6ac5d88ce00a3",
-      "note": "Il riavvio del dongle CarPlay/AA non resetta più i telefoni col cavo, solo i dongle wireless veri. Permesso della velocità, nuovi certificati Sectigo/USERTrust, prima configurazione di Android riconosciuta, niente log da telefoni ed emulatori.",
+      "versione": "0.3.0",
+      "file": "apk/launcher-swi132/MG4Launcher-SWI132-0.3.0.apk",
+      "dimensione": 677904,
+      "sha256": "78a4238f51c83cce89a5d85e122c918372f59ba2d451e422c8bd75e284b4c0f9",
+      "note": "Nuovo pulsante Sblocca presa di ricarica, unità di distanza in miglia, tasto Home che chiude i popup e funziona anche dalle impostazioni dell'auto, nuove icone del clima, impostazioni riorganizzate, tasto 360 configurabile e Apri più grande per Android Auto/CarPlay.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 31,
+      "codice_versione": 32,
       "nome": "MG4 Launcher",
       "per": [
         "SWI132"
