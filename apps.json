@@ -48,13 +48,13 @@
     },
     {
       "id": "launcher-swi133",
-      "versione": "0.2.8",
-      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.2.8.apk",
-      "dimensione": 636152,
-      "sha256": "3e0731ed6f2b26363d75a9ad25653247e38c9c3df421f870558770682d3e57bc",
-      "note": "Il riavvio del dongle CarPlay/AA non resetta più i telefoni col cavo, solo i dongle wireless veri. Permesso della velocità, nuovi certificati Sectigo/USERTrust, prima configurazione di Android riconosciuta, niente log da telefoni ed emulatori.",
+      "versione": "0.3.0",
+      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.3.0.apk",
+      "dimensione": 674305,
+      "sha256": "c30f0dfda7bf8429f5b4489126f4f32b00386ea1adebb634b571abfb74851328",
+      "note": "Tasto Home corretto (touch e fisico), unità distanza configurabile, icone ufficiali del clima, tutta la scheda CarPlay/Android Auto si tocca, impostazioni riorganizzate con tasto 360 configurabile, cartella loghi personali e navigatore predefinito.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 32,
+      "codice_versione": 33,
       "nome": "MG4 Launcher",
       "per": [
         "SWI133"
