@@ -129,24 +129,6 @@
       "repo": "ernestomicco2026-cell/mg4-taskmanager",
       "pacchetto": "it.mg4.taskmanager",
       "codice_versione": 10300
-    },
-    {
-      "id": "aptoide",
-      "versione": "10.0.0",
-      "file": "apk/aptoide/Aptoide-10.0.0.apk",
-      "dimensione": 13074189,
-      "sha256": "cd3a042bb2135040024cdd4e7b0dfd5f2db950e6fc111f529b5e5887fbf7fc47",
-      "note": "",
-      "pacchetto": "cm.aptoide.pt",
-      "codice_versione": 13001,
-      "nome": "Aptoide",
-      "per": [
-        "SWI68",
-        "SWI69",
-        "SWI132",
-        "SWI133"
-      ],
-      "repo": ""
     }
   ]
 }
