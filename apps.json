@@ -18,13 +18,13 @@
     },
     {
       "id": "launcher-swi69",
-      "versione": "0.3.11",
-      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.3.11.apk",
-      "dimensione": 635655,
-      "sha256": "ddf5dff5a44631e176c83ebb7fadc02557976f207dcb55d269fecb875a169b33",
-      "note": "Il riavvio del dongle CarPlay/AA non resetta più i telefoni col cavo, solo i dongle wireless veri. Permesso della velocità, nuovi certificati Sectigo/USERTrust, prima configurazione di Android riconosciuta, niente log da telefoni ed emulatori.",
+      "versione": "0.4.0",
+      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.4.0.apk",
+      "dimensione": 677904,
+      "sha256": "38801ef8301a010709a1981e3d562c1e932181aa763d4460b7701096f5a27b44",
+      "note": "Nuovo pulsante Sblocca presa di ricarica, unità di distanza in miglia, tasto Home che chiude i popup e funziona anche dalle impostazioni dell'auto, nuove icone del clima, impostazioni riorganizzate, pulsante 360 configurabile e Apri più grande per Android Auto/CarPlay.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 31,
+      "codice_versione": 32,
       "nome": "MG4 Launcher",
       "per": [
         "SWI69"
