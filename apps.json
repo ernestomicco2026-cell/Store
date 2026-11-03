@@ -3,13 +3,13 @@
   "apps": [
     {
       "id": "launcher-swi68",
-      "versione": "1.0.0",
-      "file": "apk/launcher-swi68/MG4Launcher-1.0.0.apk",
+      "versione": "1.0.1",
+      "file": "apk/launcher-swi68/MG4Launcher-1.0.1.apk",
       "dimensione": 694785,
-      "sha256": "ac331b53606ebb1cd6d3e1c6d5094f208936efc510e2cd8ed7134810e52822ad",
-      "note": "Il tasto Home touch torna sempre al launcher. Nuovo pulsante Sblocca presa di ricarica. Icone ufficiali del clima (A/C, AUTO, ricircolo, sedili e volante riscaldati) con colore e sfondo secondo lo stato, e riquadro Sbrinamento parabrezza. Impostazioni riorganizzate, unità distanza, tasto 360 configurabile, cartella loghi personali, navigatore predefinito.",
+      "sha256": "2bf26561dbb5191253351b63fd4756f223211c4fda65fdb446b88fe5914f17f2",
+      "note": "Il menu delle impostazioni scorre di nuovo e la sezione aggiornamenti è sempre raggiungibile.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 36,
+      "codice_versione": 37,
       "nome": "MG4 Launcher",
       "per": [
         "SWI68"
@@ -48,13 +48,13 @@
     },
     {
       "id": "launcher-swi133",
-      "versione": "0.3.0",
-      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.3.0.apk",
-      "dimensione": 674305,
-      "sha256": "c30f0dfda7bf8429f5b4489126f4f32b00386ea1adebb634b571abfb74851328",
-      "note": "Tasto Home corretto (touch e fisico), unità distanza configurabile, icone ufficiali del clima, tutta la scheda CarPlay/Android Auto si tocca, impostazioni riorganizzate con tasto 360 configurabile, cartella loghi personali e navigatore predefinito.",
+      "versione": "0.3.1",
+      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.3.1.apk",
+      "dimensione": 678401,
+      "sha256": "21dc6d016542b48a77837c6a068f00622c2f46bd540d7d09623f7451a32548a5",
+      "note": "Il menu delle impostazioni scorre di nuovo e la sezione aggiornamenti è sempre raggiungibile.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 33,
+      "codice_versione": 34,
       "nome": "MG4 Launcher",
       "per": [
         "SWI133"
