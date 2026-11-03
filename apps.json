@@ -3,13 +3,13 @@
   "apps": [
     {
       "id": "launcher-swi68",
-      "versione": "0.9.8",
-      "file": "apk/launcher-swi68/MG4Launcher-0.9.8.apk",
-      "dimensione": 652536,
-      "sha256": "db6a4ff5087843b9aece9d7b3cf1be7af62673f716c88caf68f60b5379671f08",
-      "note": "Il riavvio del dongle CarPlay/AA non resetta più i telefoni col cavo, solo i dongle wireless veri. Permesso della velocità, nuovi certificati Sectigo/USERTrust, prima configurazione di Android riconosciuta, niente log da telefoni ed emulatori.",
+      "versione": "1.0.0",
+      "file": "apk/launcher-swi68/MG4Launcher-1.0.0.apk",
+      "dimensione": 694785,
+      "sha256": "ac331b53606ebb1cd6d3e1c6d5094f208936efc510e2cd8ed7134810e52822ad",
+      "note": "Il tasto Home touch torna sempre al launcher. Nuovo pulsante Sblocca presa di ricarica. Icone ufficiali del clima (A/C, AUTO, ricircolo, sedili e volante riscaldati) con colore e sfondo secondo lo stato, e riquadro Sbrinamento parabrezza. Impostazioni riorganizzate, unità distanza, tasto 360 configurabile, cartella loghi personali, navigatore predefinito.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 35,
+      "codice_versione": 36,
       "nome": "MG4 Launcher",
       "per": [
         "SWI68"
