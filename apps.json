@@ -81,13 +81,13 @@
     },
     {
       "id": "voice",
-      "versione": "1.0.0-beta.7",
-      "file": "apk/voice/MG4Voice-1.0.0-beta.7.apk",
-      "dimensione": 13628167,
-      "sha256": "7dd4f932fc5819cf3de3fc8cbeddbda73c34c8db3b5666506360b85633d24c12",
+      "versione": "1.0.0-beta.8",
+      "file": "apk/voice/MG4Voice-1.0.0-beta.8.apk",
+      "dimensione": 18896048,
+      "sha256": "c8bd8431abb9b66b712ec1fbc06669cb59d18570f6f7bd03e932235c2c38145a",
       "note": "",
       "pacchetto": "com.mg4.voice",
-      "codice_versione": 106,
+      "codice_versione": 107,
       "nome": "MG4 Voice",
       "per": [
         "SWI68"
