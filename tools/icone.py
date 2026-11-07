@@ -216,6 +216,19 @@ def _svg_to_png(svg, dest):
 
 
 def _raster_to_png(data, dest):
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        # PNG: va bene cosi' (l'app la ridimensiona da sola)
+        open(dest, "wb").write(data)
+        return True
+    if shutil.which("rsvg-convert"):
+        # altri formati (webp, jpg): li disegna rsvg-convert dentro un SVG
+        import base64
+        mime = "image/webp" if data[8:12] == b"WEBP" else "image/jpeg"
+        svg = ('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="%d" height="%d">'
+               '<image width="%d" height="%d" xlink:href="data:%s;base64,%s"/></svg>'
+               % (SIZE, SIZE, SIZE, SIZE, mime, base64.b64encode(data).decode()))
+        if _svg_to_png(svg, dest):
+            return True
     with tempfile.TemporaryDirectory() as tmp:
         src = os.path.join(tmp, "i.img")
         open(src, "wb").write(data)
