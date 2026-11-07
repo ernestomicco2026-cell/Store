@@ -7,7 +7,8 @@ on:
   push:
     paths:
       - fonti.json
-      - tools/aggiorna.py
+      - tools/**
+      - apk/store/**
 
 permissions:
   contents: write
@@ -23,6 +24,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Strumento per le icone
+        run: command -v rsvg-convert || (sudo apt-get update -qq && sudo apt-get install -y -qq librsvg2-bin)
+
       - name: Controlla le app
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,7 +34,7 @@ jobs:
 
       - name: Salva le novita'
         run: |
-          git add -A apk apps.json
+          git add -A apk icone apps.json
           if git diff --cached --quiet; then
             echo "Nessuna novita'"
             exit 0

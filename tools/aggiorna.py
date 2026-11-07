@@ -59,6 +59,41 @@ def pacchetto(file_apk):
         return {}
 
 
+def icona_repo(repo):
+    """(sha, byte) di store-icon.png nella radice del repo, oppure (None, None)."""
+    if not repo:
+        return None, None
+    try:
+        meta = api_json(f"/repos/{repo}/contents/store-icon.png")
+        return meta.get("sha"), lambda: contenuto(repo, "store-icon.png")
+    except urllib.error.HTTPError:
+        return None, None
+
+
+def aggiorna_icona(voce, a, file_abs):
+    """Rifa' icone/<id>.png solo se e' cambiato l'APK o lo store-icon.png del repo."""
+    try:
+        import icone
+        sha_repo, leggi = icona_repo(a.get("repo"))
+        origine = "repo:" + sha_repo if sha_repo else "apk:" + voce.get("sha256", "")
+        rel = f"icone/{a['id']}.png"
+        dest = os.path.join(RADICE, rel)
+        if voce.get("icona") == rel and voce.get("icona_da") == origine and os.path.exists(dest):
+            return
+        if os.path.exists(dest):
+            os.remove(dest)
+        if icone.make(AAPT2, file_abs, dest, leggi() if leggi else None):
+            voce["icona"] = rel
+            voce["icona_da"] = origine
+            voce["icona_sha"] = hashlib.sha256(open(dest, "rb").read()).hexdigest()[:16]
+            print(f"ICONA  {a['id']} ({origine.split(':')[0]})")
+        else:
+            for k in ("icona", "icona_da", "icona_sha"):
+                voce.pop(k, None)
+    except Exception as e:
+        print(f"ICONA  {a['id']}: non riuscita ({e})", file=sys.stderr)
+
+
 # ---------- le tre fonti ----------
 def da_json(a):
     d = json.loads(contenuto(a["repo"], "releases/latest.json"))
@@ -153,6 +188,7 @@ def main():
             if "pacchetto" not in voce:
                 voce.update(pacchetto(file_abs))
             voce.update({"nome": a["nome"], "per": a.get("per", []), "repo": a["repo"]})
+            aggiorna_icona(voce, a, file_abs)
             if a.get("richiede"):
                 voce["richiede"] = a["richiede"]
             else:
@@ -172,6 +208,12 @@ def main():
             for f in os.listdir(os.path.join(base, d)):
                 os.remove(os.path.join(base, d, f))
             os.rmdir(os.path.join(base, d))
+
+    # toglie le icone delle app eliminate
+    cart_icone = os.path.join(RADICE, "icone")
+    for f in (os.listdir(cart_icone) if os.path.isdir(cart_icone) else []):
+        if f[:-4] not in ids:
+            os.remove(os.path.join(cart_icone, f))
 
     testo = json.dumps({"versione_catalogo": 1, "apps": nuovo}, ensure_ascii=False, indent=2) + "\n"
     open(percorso_cat, "w", encoding="utf-8").write(testo)
