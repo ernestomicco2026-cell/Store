@@ -12,7 +12,6 @@
 
     { "id": "taskmanager", "nome": "MG4 Task Manager", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
-    { "id": "store", "nome": "Store", "repo": "", "tipo": "locale", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
-      "note": "Icone delle app, avviso degli aggiornamenti in background e tasto Aggiorna tutto." }
+    { "id": "store", "nome": "Store", "repo": "ernestomicco2026-cell/Store", "tipo": "json", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] }
   ]
 }

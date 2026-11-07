@@ -8,7 +8,7 @@ on:
     paths:
       - fonti.json
       - tools/**
-      - apk/store/**
+      - releases/latest.json
 
 permissions:
   contents: write

@@ -1,1 +1,6 @@
 __pycache__/
+build/
+tools/android.jar
+tools/d8.jar
+tools/app-key.txt
+app/res/values*/strings.xml
