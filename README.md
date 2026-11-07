@@ -59,7 +59,7 @@ The store always offers the latest version published in each app's repository, u
 MG4 Store è l'app che installa e aggiorna le app MG4 direttamente sull'infotainment, senza chiavetta USB e senza
 computer. Si installa una volta sola, come una normale app; da lì in poi le altre app arrivano con un tocco.
 
-**Indice:** [Cosa fa](#cosa-fa) · [Come funziona l'accesso](#come-funziona-laccesso) · [Installazione](#installazione) · [Aggiornamenti](#aggiornamenti) · [Dati inviati](#dati-inviati) · [Segnalare un problema](#segnalare-un-problema) · [Sostieni il progetto](#sostieni-il-progetto) · [Versioni](#versioni)
+**Indice:** [Cosa fa](#cosa-fa) · [Come funziona l'accesso](#come-funziona-laccesso) · [Installazione](#installazione) · [Aggiornamenti](#aggiornamenti) · [Aggiungere un'app](#aggiungere-unapp-allo-store) · [Dati inviati](#dati-inviati) · [Segnalare un problema](#segnalare-un-problema) · [Sostieni il progetto](#sostieni-il-progetto) · [Versioni](#versioni)
 
 ### Cosa fa
 
@@ -108,6 +108,16 @@ adb install -r -f MG4Store-0.2.0.apk
 
 Lo store si aggiorna da solo, come le altre app: quando esce una sua versione nuova compare per primo nella griglia
 con il tasto **Aggiorna**. Con *Aggiorna tutto* viene installato per ultimo, perché alla fine si riavvia.
+
+### Aggiungere un'app allo store
+
+Lo store è aperto anche alle app di altri sviluppatori della community MG4.
+
+- **Se sviluppi un'app per la MG4** e vuoi che arrivi agli utenti dallo store, apri una richiesta nella sezione
+  [Issues](../../issues) con il link al repository. Basta che l'app funzioni sull'infotainment e che le versioni
+  siano pubblicate su GitHub: da lì lo store prende da solo ogni nuova versione, senza che tu debba fare altro.
+- **Se usi un'app che vorresti trovare nello store**, chiedilo al suo autore: se è d'accordo, me lo fa sapere e la
+  aggiungo. Un'app entra nello store solo con il consenso di chi l'ha scritta.
 
 ### Dati inviati
 
@@ -170,7 +180,7 @@ ma il catalogo non risponde.
 MG4 Store is the app that installs and updates MG4 apps directly on the infotainment, with no USB stick and no
 computer. You install it once, like a normal app; from then on the other apps arrive with one tap.
 
-**Contents:** [Features](#features) · [How access works](#how-access-works) · [Installation](#installation) · [Updates](#updates) · [Data sent](#data-sent) · [Reporting a problem](#reporting-a-problem) · [Support the project](#support-the-project) · [Changelog](#changelog)
+**Contents:** [Features](#features) · [How access works](#how-access-works) · [Installation](#installation) · [Updates](#updates) · [Adding an app](#adding-an-app-to-the-store) · [Data sent](#data-sent) · [Reporting a problem](#reporting-a-problem) · [Support the project](#support-the-project) · [Changelog](#changelog)
 
 ### Features
 
@@ -219,6 +229,17 @@ adb install -r -f MG4Store-0.2.0.apk
 
 The store updates itself like the other apps: when a new version is out it appears first in the grid with the
 **Update** button. With *Update all* it is installed last, because it restarts at the end.
+
+### Adding an app to the store
+
+The store is open to apps from other developers in the MG4 community too.
+
+- **If you develop an app for the MG4** and want it to reach users through the store, open a request in the
+  [Issues](../../issues) section with a link to the repository. The app just needs to run on the infotainment and
+  have its versions published on GitHub: from there the store picks up every new version by itself, with nothing
+  else for you to do.
+- **If you use an app you'd like to find in the store**, ask its author: if they agree, they let me know and I add
+  it. An app only goes into the store with the consent of whoever wrote it.
 
 ### Data sent
 
