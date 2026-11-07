@@ -128,7 +128,10 @@
         "SWI132",
         "SWI133"
       ],
-      "repo": "ernestomicco2026-cell/mg4-taskmanager"
+      "repo": "ernestomicco2026-cell/mg4-taskmanager",
+      "icona": "icone/taskmanager.png",
+      "icona_da": "apk:4d62d7e84d8d8ac143087cf027d9cc12b007a084fc4e8af6255cf4f11f0a6068",
+      "icona_sha": "c8b10a1dc4460045"
     },
     {
       "id": "store",
