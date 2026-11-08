@@ -21,20 +21,20 @@
     },
     {
       "id": "launcher-swi69",
-      "versione": "0.4.2",
-      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.4.2.apk",
-      "dimensione": 722960,
-      "sha256": "fe76a7565b6b53e58824d9fdeb3c8a287b2e9d6ee7b2cd250b32332ed6f133ab",
-      "note": "Tema giorno/notte automatico anche sulla SWI69; ritorno a CarPlay/Android Auto dopo la retromarcia; ultima sorgente audio all'accensione, radio e Bluetooth più affidabili; FM/DAB sotto la Radio; fari sull'auto, gomme più leggibili, icone 360°; riscaldamento sedili e volante, limite e ricarica programmata solo se l'auto li supporta; aggiornamenti e avvisi controllati da soli.",
+      "versione": "0.4.3",
+      "file": "apk/launcher-swi69/MG4Launcher-SWI69-0.4.3.apk",
+      "dimensione": 776208,
+      "sha256": "5361c6639c4dd4eb6797b213c3593db68977a5a3732437bbc873ae52d4e8abff",
+      "note": "Tema automatico più affidabile; seconda porta USB come sorgente separata; Bluetooth all'accensione aspetta il telefono; elenco stazioni aggiornato; riquadro sotto la stazione con preferiti del telefono o app; ordine in alto scambiabile; FM/DAB accanto ai comandi; Controllo funzioni; correzioni di stabilità.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 34,
+      "codice_versione": 35,
       "nome": "MG4 Launcher",
       "per": [
         "SWI69"
       ],
       "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI69",
       "icona": "icone/launcher-swi69.png",
-      "icona_da": "apk:fe76a7565b6b53e58824d9fdeb3c8a287b2e9d6ee7b2cd250b32332ed6f133ab",
+      "icona_da": "apk:5361c6639c4dd4eb6797b213c3593db68977a5a3732437bbc873ae52d4e8abff",
       "icona_sha": "9e16040f53729158"
     },
     {
@@ -57,20 +57,20 @@
     },
     {
       "id": "launcher-swi133",
-      "versione": "0.3.2",
-      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.3.2.apk",
-      "dimensione": 723457,
-      "sha256": "48b99dfb4945f197393e459c7942e9afb56d76f8397d1b86a2aa0e956bc88e35",
-      "note": "Ritorno a CarPlay/Android Auto dopo la retromarcia, ripresa della sorgente audio all'accensione, FM/DAB sotto Radio, tema giorno/notte più robusto, ricarica programmata e aggiornamenti automatici.",
+      "versione": "0.3.3",
+      "file": "apk/launcher-swi133/MG4Launcher-SWI133-0.3.3.apk",
+      "dimensione": 797185,
+      "sha256": "388e0cc196fbb0308f08c2c0990d4f6698eb858cfa967b7819e0f288b2cb5048",
+      "note": "Tema giorno/notte non più bloccato su notte, crash delle app corretto, Bluetooth che aspetta il telefono all'accensione, elenco stazioni completo, riquadro accanto al clima (media, preferiti telefono, scorciatoie), ordine in alto, FM/DAB accanto ai comandi, Controllo funzioni, aggiornamenti che riprovano quando torna la rete.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 35,
+      "codice_versione": 36,
       "nome": "MG4 Launcher",
       "per": [
         "SWI133"
       ],
       "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI133",
       "icona": "icone/launcher-swi133.png",
-      "icona_da": "apk:48b99dfb4945f197393e459c7942e9afb56d76f8397d1b86a2aa0e956bc88e35",
+      "icona_da": "apk:388e0cc196fbb0308f08c2c0990d4f6698eb858cfa967b7819e0f288b2cb5048",
       "icona_sha": "9e16040f53729158"
     },
     {
