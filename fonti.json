@@ -12,6 +12,9 @@
 
     { "id": "taskmanager", "nome": "MG4 Task Manager", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
+    { "id": "games", "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.3", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
+      "note": "Log automatici, schermata Info, sette giochi liberi nel catalogo, emulatore NES con le tue ROM, comandi al volante, registrazione dell'auto senza chiavi nell'app." },
+
     { "id": "store", "nome": "Store", "repo": "ernestomicco2026-cell/Store", "tipo": "json", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] }
   ]
 }
