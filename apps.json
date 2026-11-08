@@ -39,20 +39,20 @@
     },
     {
       "id": "launcher-swi132",
-      "versione": "0.3.1",
-      "file": "apk/launcher-swi132/MG4Launcher-SWI132-0.3.1.apk",
-      "dimensione": 718864,
-      "sha256": "d4b198a5f1daf5ea0c1ac7757c3915f368be645356f3655ddc1d292218f8fb25",
-      "note": "Tema giorno/notte automatico che funziona davvero (alba, tramonto e fari) e fari sull'auto disegnata, ritorno a CarPlay/Android Auto dopo la retromarcia, ultima sorgente audio all'accensione e Bluetooth più affidabile, banda FM/DAB sotto la Radio, pressione gomme più grande, \"360°\" al posto dell'icona della telecamera, pulsante in alto a destra a scelta, scelte per riscaldamento sedili/volante e limite di ricarica, ricarica programmata, aggiornamenti controllati da soli.",
+      "versione": "0.3.2",
+      "file": "apk/launcher-swi132/MG4Launcher-SWI132-0.3.2.apk",
+      "dimensione": 772112,
+      "sha256": "2d94f4253e838f2103bf6026f485a8bd0cb9ce998233fa18917f2b7c53d45c1b",
+      "note": "Seconda porta USB come sorgente separata (anche con i tasti al volante), riquadro accanto al clima a scelta (Media, Preferiti telefono con chiamata a un tocco, Scorciatoie app), ordine dei comandi in alto a scelta, FM/DAB di nuovo accanto ai comandi e più grande, Controllo funzioni nelle impostazioni, correzioni a tema giorno/notte, temperatura interna, Bluetooth all'accensione, elenco stazioni e invio dei log.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 33,
+      "codice_versione": 34,
       "nome": "MG4 Launcher",
       "per": [
         "SWI132"
       ],
       "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI132",
       "icona": "icone/launcher-swi132.png",
-      "icona_da": "apk:d4b198a5f1daf5ea0c1ac7757c3915f368be645356f3655ddc1d292218f8fb25",
+      "icona_da": "apk:2d94f4253e838f2103bf6026f485a8bd0cb9ce998233fa18917f2b7c53d45c1b",
       "icona_sha": "9e16040f53729158"
     },
     {
@@ -96,20 +96,20 @@
     },
     {
       "id": "voice",
-      "versione": "1.0.0-beta.9",
-      "file": "apk/voice/MG4Voice-1.0.0-beta.9.apk",
-      "dimensione": 18937136,
-      "sha256": "8c1a57e5dbdf112ab328cfa0c18db340edf9c240b4da0577290d14e833e058b3",
+      "versione": "1.0.0-beta.10",
+      "file": "apk/voice/MG4Voice-1.0.0-beta.10.apk",
+      "dimensione": 13693831,
+      "sha256": "13ca14118e8e607b2b2255548893e22b67c218736ec4ca21ee6d93ea3f57dbf6",
       "note": "",
       "pacchetto": "com.mg4.voice",
-      "codice_versione": 109,
+      "codice_versione": 110,
       "nome": "MG4 Voice",
       "per": [
         "SWI68"
       ],
       "repo": "ernestomicco2026-cell/Mg4-Voice",
       "icona": "icone/voice.png",
-      "icona_da": "apk:8c1a57e5dbdf112ab328cfa0c18db340edf9c240b4da0577290d14e833e058b3",
+      "icona_da": "apk:13ca14118e8e607b2b2255548893e22b67c218736ec4ca21ee6d93ea3f57dbf6",
       "icona_sha": "12393247daa2de1f"
     },
     {
