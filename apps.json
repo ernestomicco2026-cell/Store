@@ -3,20 +3,20 @@
   "apps": [
     {
       "id": "launcher-swi68",
-      "versione": "1.0.2",
-      "file": "apk/launcher-swi68/MG4Launcher-1.0.2.apk",
-      "dimensione": 743937,
-      "sha256": "8402be42b09d28ea5a02f10674e55d8aa5090df457f03cfb647285588d0d9d0f",
-      "note": "Tema giorno/notte più affidabile, ritorno a CarPlay/Android Auto dopo la retromarcia, radio e Bluetooth più affidabili all'accensione, FM/DAB sotto la Radio, ricarica programmata, aggiornamenti e avvisi automatici.",
+      "versione": "1.0.3",
+      "file": "apk/launcher-swi68/MG4Launcher-1.0.3.apk",
+      "dimensione": 793089,
+      "sha256": "98141402ae20ad5e44a6b18c2e00d502aaaeaaf96cb52616d6ed4e557c132b8f",
+      "note": "Tema giorno/notte corretto sulle auto bloccate su notte, FM/DAB più grande accanto ai comandi, ordine dei comandi in alto scambiabile, riquadro accanto al clima con preferiti del telefono o app, elenco stazioni sempre aggiornato, Bluetooth più affidabile all'accensione, Controllo funzioni.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 38,
+      "codice_versione": 40,
       "nome": "MG4 Launcher",
       "per": [
         "SWI68"
       ],
       "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI68",
       "icona": "icone/launcher-swi68.png",
-      "icona_da": "apk:8402be42b09d28ea5a02f10674e55d8aa5090df457f03cfb647285588d0d9d0f",
+      "icona_da": "apk:98141402ae20ad5e44a6b18c2e00d502aaaeaaf96cb52616d6ed4e557c132b8f",
       "icona_sha": "9e16040f53729158"
     },
     {
@@ -132,6 +132,27 @@
       "icona": "icone/taskmanager.png",
       "icona_da": "apk:4d62d7e84d8d8ac143087cf027d9cc12b007a084fc4e8af6255cf4f11f0a6068",
       "icona_sha": "c8b10a1dc4460045"
+    },
+    {
+      "id": "games",
+      "versione": "0.4.3",
+      "file": "apk/games/MG4Games-0.4.3.apk",
+      "dimensione": 3060371,
+      "sha256": "f199ba3ba67eaede639a2d4050663bca46d9cb9423c56f8dbc589b9ec8a8fbab",
+      "note": "Log automatici, schermata Info, sette giochi liberi nel catalogo, emulatore NES con le tue ROM, comandi al volante, registrazione dell'auto senza chiavi nell'app.",
+      "pacchetto": "com.mg4.games",
+      "codice_versione": 8,
+      "nome": "MG4 Games",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ],
+      "repo": "",
+      "icona": "icone/games.png",
+      "icona_da": "apk:f199ba3ba67eaede639a2d4050663bca46d9cb9423c56f8dbc589b9ec8a8fbab",
+      "icona_sha": "029efb7ce7b715ca"
     },
     {
       "id": "store",
