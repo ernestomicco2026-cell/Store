@@ -156,13 +156,13 @@
     },
     {
       "id": "store",
-      "versione": "0.2.0",
-      "file": "apk/store/MG4Store-0.2.0.apk",
+      "versione": "0.2.1",
+      "file": "apk/store/MG4Store-0.2.1.apk",
       "dimensione": 62971,
-      "sha256": "1c0c5e451df0a669a1bafc936fc49819f888e429a97c38ad748cb5315fd00e42",
-      "note": "Icone delle app, avviso degli aggiornamenti in background e tasto Aggiorna tutto.",
+      "sha256": "2283d93d0769092a5b26caa85d48a5187e94daff5045e22941343f5b12d03431",
+      "note": "Schermo intero senza le barre di sistema, come il launcher; titolo Store al centro.",
       "pacchetto": "com.mg4.store",
-      "codice_versione": 3,
+      "codice_versione": 4,
       "nome": "Store",
       "per": [
         "SWI68",
@@ -172,7 +172,7 @@
       ],
       "repo": "ernestomicco2026-cell/Store",
       "icona": "icone/store.png",
-      "icona_da": "apk:1c0c5e451df0a669a1bafc936fc49819f888e429a97c38ad748cb5315fd00e42",
+      "icona_da": "apk:2283d93d0769092a5b26caa85d48a5187e94daff5045e22941343f5b12d03431",
       "icona_sha": "b6a78fd71acf0cba"
     }
   ]
