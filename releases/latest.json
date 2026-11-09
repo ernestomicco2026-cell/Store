@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
-  "apk": "releases/MG4Store-0.2.0.apk",
-  "notes": "Icone vere delle app, barra Aggiornamenti disponibili con Aggiorna tutto, notifica degli aggiornamenti ogni 6 ore, lo store si aggiorna da solo, una sola voce per MG4 Task Manager."
+  "version": "0.2.1",
+  "apk": "releases/MG4Store-0.2.1.apk",
+  "notes": "Schermo intero senza le barre di sistema, come il launcher; titolo Store al centro."
 }

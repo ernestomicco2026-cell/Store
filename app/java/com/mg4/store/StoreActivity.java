@@ -41,6 +41,14 @@ import java.util.concurrent.Executors;
 public final class StoreActivity extends Activity {
     private static final int S_LOADING = 0, S_READY = 1, S_NOT_MG4 = 2, S_BLOCKED = 3, S_OFFLINE = 4, S_ERROR = 5;
 
+    /** Schermo intero come nel launcher: niente barre di sistema (riappaiono con uno scorrimento e si richiudono). */
+    private static final int IMMERSIVE = View.SYSTEM_UI_FLAG_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+
     private final Handler main = new Handler(Looper.getMainLooper());
     private final ExecutorService net = Executors.newSingleThreadExecutor();
 
@@ -75,10 +83,22 @@ public final class StoreActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        goFullscreen();
         if (state == S_READY && !installing) {
             for (Item it : items) it.refresh(getPackageManager());
             showBody();
         }
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) goFullscreen();
+    }
+
+    private void goFullscreen() {
+        View d = getWindow().getDecorView();
+        if (d.getSystemUiVisibility() != IMMERSIVE) d.setSystemUiVisibility(IMMERSIVE);
     }
 
     @Override
@@ -229,10 +249,13 @@ public final class StoreActivity extends Activity {
     private void build() {
         t = Theme.resolve(this, prefs);
         Window w = getWindow();
-        w.setStatusBarColor(t.bg);
-        w.setNavigationBarColor(t.bg);
-        w.getDecorView().setSystemUiVisibility(t.day
-                ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR : 0);
+        w.setStatusBarColor(0);
+        w.setNavigationBarColor(0);
+        w.getDecorView().setOnSystemUiVisibilityChangeListener(vis -> {
+            // se una barra riappare (scorrimento dal bordo), dopo un attimo si richiude
+            if ((vis & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) main.postDelayed(this::goFullscreen, 2500);
+        });
+        goFullscreen();
 
         root = new FrameLayout(this);
         root.setBackgroundColor(t.bg);
@@ -241,19 +264,27 @@ public final class StoreActivity extends Activity {
         col.setOrientation(LinearLayout.VERTICAL);
         col.setPadding(dp(22), dp(20), dp(22), 0);
 
-        LinearLayout head = new LinearLayout(this);
-        head.setGravity(Gravity.CENTER_VERTICAL);
+        // intestazione: titolo e sottotitolo al centro, pulsanti a destra
+        FrameLayout head = new FrameLayout(this);
         head.setPadding(dp(6), 0, dp(6), 0);
         LinearLayout titles = new LinearLayout(this);
         titles.setOrientation(LinearLayout.VERTICAL);
-        titles.addView(text(L.s(R.string.app_name), 26, t.text, true));
+        titles.setGravity(Gravity.CENTER_HORIZONTAL);
+        TextView title = text(L.s(R.string.app_name), 26, t.text, true);
+        title.setGravity(Gravity.CENTER);
+        titles.addView(title);
         subtitle = text("", 14, t.sub, false);
+        subtitle.setGravity(Gravity.CENTER);
+        subtitle.setPadding(0, dp(4), 0, 0);
         titles.addView(subtitle);
-        head.addView(titles, new LinearLayout.LayoutParams(0, -2, 1));
-        head.addView(iconButton(R.drawable.ic_refresh, v -> { if (!installing) load(); }));
+        head.addView(titles, new FrameLayout.LayoutParams(-2, -2, Gravity.CENTER));
+        LinearLayout buttons = new LinearLayout(this);
+        buttons.addView(iconButton(R.drawable.ic_refresh, v -> { if (!installing) load(); }));
         View gap = new View(this);
-        head.addView(gap, new LinearLayout.LayoutParams(dp(12), 1));
-        head.addView(iconButton(R.drawable.ic_gear, v -> showSettings()));
+        buttons.addView(gap, new LinearLayout.LayoutParams(dp(12), 1));
+        buttons.addView(iconButton(R.drawable.ic_gear, v -> showSettings()));
+        head.addView(buttons, new FrameLayout.LayoutParams(-2, -2, Gravity.END | Gravity.CENTER_VERTICAL));
+        head.setMinimumHeight(dp(52));
         col.addView(head);
 
         body = new FrameLayout(this);
