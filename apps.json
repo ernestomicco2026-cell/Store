@@ -135,13 +135,13 @@
     },
     {
       "id": "games",
-      "versione": "0.4.3",
-      "file": "apk/games/MG4Games-0.4.3.apk",
-      "dimensione": 3060371,
-      "sha256": "f199ba3ba67eaede639a2d4050663bca46d9cb9423c56f8dbc589b9ec8a8fbab",
-      "note": "Log automatici, schermata Info, sette giochi liberi nel catalogo, emulatore NES con le tue ROM, comandi al volante, registrazione dell'auto senza chiavi nell'app.",
+      "versione": "0.4.4",
+      "file": "apk/games/MG4Games-0.4.4.apk",
+      "dimensione": 3084507,
+      "sha256": "4ea1b0856cbe3be9ab3b5f6064934dbb146a0a634dbb11c3caa6a36025dd75d1",
+      "note": "Collega pad Bluetooth dall'app (Info), anche se le impostazioni dell'auto mostrano solo i telefoni.",
       "pacchetto": "com.mg4.games",
-      "codice_versione": 8,
+      "codice_versione": 9,
       "nome": "MG4 Games",
       "per": [
         "SWI68",
@@ -151,7 +151,7 @@
       ],
       "repo": "",
       "icona": "icone/games.png",
-      "icona_da": "apk:f199ba3ba67eaede639a2d4050663bca46d9cb9423c56f8dbc589b9ec8a8fbab",
+      "icona_da": "apk:4ea1b0856cbe3be9ab3b5f6064934dbb146a0a634dbb11c3caa6a36025dd75d1",
       "icona_sha": "029efb7ce7b715ca"
     },
     {
