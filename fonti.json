@@ -12,8 +12,8 @@
 
     { "id": "taskmanager", "nome": "MG4 Task Manager", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
-    { "id": "games", "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.5", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
-      "note": "Attiva profilo pad (Info > Collega pad Bluetooth): accende nel Bluetooth dell'auto il supporto per i pad. Sperimentale, reversibile con Ripristina." },
+    { "id": "games", "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.6", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
+      "note": "Attiva profilo pad (Info > Collega pad Bluetooth): corretta l'installazione che l'auto rifiutava. Sperimentale, reversibile con Ripristina." },
 
     { "id": "store", "nome": "Store", "repo": "ernestomicco2026-cell/Store", "tipo": "json", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] }
   ]
