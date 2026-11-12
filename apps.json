@@ -135,13 +135,13 @@
     },
     {
       "id": "games",
-      "versione": "0.4.5",
-      "file": "apk/games/MG4Games-0.4.5.apk",
-      "dimensione": 3105143,
-      "sha256": "25d6b311d4392e3a1e7a3e31579d15e1dfff0f4df99e4b38ac9e5b7fb7f11092",
-      "note": "Attiva profilo pad (Info > Collega pad Bluetooth): accende nel Bluetooth dell'auto il supporto per i pad. Sperimentale, reversibile con Ripristina.",
+      "versione": "0.4.6",
+      "file": "apk/games/MG4Games-0.4.6.apk",
+      "dimensione": 3105839,
+      "sha256": "65a1d8a15fb2e71aec019fa19bb4947f495c58b8547db56b7c4a26d91c5ae252",
+      "note": "Attiva profilo pad (Info > Collega pad Bluetooth): corretta l'installazione che l'auto rifiutava. Sperimentale, reversibile con Ripristina.",
       "pacchetto": "com.mg4.games",
-      "codice_versione": 10,
+      "codice_versione": 11,
       "nome": "MG4 Games",
       "per": [
         "SWI68",
@@ -151,7 +151,7 @@
       ],
       "repo": "",
       "icona": "icone/games.png",
-      "icona_da": "apk:25d6b311d4392e3a1e7a3e31579d15e1dfff0f4df99e4b38ac9e5b7fb7f11092",
+      "icona_da": "apk:65a1d8a15fb2e71aec019fa19bb4947f495c58b8547db56b7c4a26d91c5ae252",
       "icona_sha": "029efb7ce7b715ca"
     },
     {
