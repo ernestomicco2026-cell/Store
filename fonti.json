@@ -12,8 +12,8 @@
 
     { "id": "taskmanager", "nome": "MG4 Task Manager", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
-    { "id": "games", "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.8", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
-      "note": "Collega pad Bluetooth (Info): diagnosi completa del Bluetooth dell'auto nei log. Sperimentale." },
+    { "id": "games", "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.9", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
+      "note": "Collega pad Bluetooth (Info): associazione in Bluetooth classico e diagnosi della configurazione dell'auto. Sperimentale." },
 
     { "id": "radiofix", "nome": "MG4 Radio Fix (prova v1.6)", "repo": "", "tipo": "locale", "versione": "1.0.0_EH32_SOP_2502201114-radiofix7", "per": ["SWI68"],
       "richiede": { "pacchetto": "com.saicmotor.service.radio", "versione_inizia": "1.0.0_EH32_SOP_2502201114" },
