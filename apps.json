@@ -135,13 +135,13 @@
     },
     {
       "id": "games",
-      "versione": "0.4.8",
-      "file": "apk/games/MG4Games-0.4.8.apk",
-      "dimensione": 3114337,
-      "sha256": "fc5cf180069088b167e64b20d182eef27cf83775ebd9e76940d75bbf7fed46e8",
-      "note": "Collega pad Bluetooth (Info): diagnosi completa del Bluetooth dell'auto nei log. Sperimentale.",
+      "versione": "0.4.9",
+      "file": "apk/games/MG4Games-0.4.9.apk",
+      "dimensione": 3118396,
+      "sha256": "23726f93fe031fdf9b02cfbac7ae545a9dc9e7ca820bd637e180bcc3fd0e8e6d",
+      "note": "Collega pad Bluetooth (Info): associazione in Bluetooth classico e diagnosi della configurazione dell'auto. Sperimentale.",
       "pacchetto": "com.mg4.games",
-      "codice_versione": 13,
+      "codice_versione": 14,
       "nome": "MG4 Games",
       "per": [
         "SWI68",
@@ -151,7 +151,7 @@
       ],
       "repo": "",
       "icona": "icone/games.png",
-      "icona_da": "apk:fc5cf180069088b167e64b20d182eef27cf83775ebd9e76940d75bbf7fed46e8",
+      "icona_da": "apk:23726f93fe031fdf9b02cfbac7ae545a9dc9e7ca820bd637e180bcc3fd0e8e6d",
       "icona_sha": "029efb7ce7b715ca"
     },
     {
