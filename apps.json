@@ -75,13 +75,13 @@
     },
     {
       "id": "clima",
-      "versione": "1.4.3",
-      "file": "apk/clima/MG4Clima-1.4.3.apk",
-      "dimensione": 510743,
-      "sha256": "7ea58b125ccb6353de0136d10b6387504a59e66b6a7e1367c7575efbdc753a74",
-      "note": "Colori uguali al launcher MG4: di notte grigi neutri, pulsanti accesi come nella home, blu solo per A/C e aria fredda. Tema giorno/notte allineato al launcher.",
+      "versione": "1.4.4",
+      "file": "apk/clima/MG4Clima-1.4.4.apk",
+      "dimensione": 518935,
+      "sha256": "1cfe94ad796c8bbaf73283b71e882cb76138c1a05193a1b54c886914f83f0ae9",
+      "note": "La verifica rimette sempre com'erano sedili, volante e ricircolo. Clima dalla barra con Android Auto e CarPlay, ritorno alla proiezione alla chiusura. Nuova opzione: chiudi da solo dopo N secondi. Tema giorno/notte letto dal sistema.",
       "pacchetto": "com.mg4.clima",
-      "codice_versione": 137,
+      "codice_versione": 138,
       "nome": "MG4 Clima",
       "per": [
         "SWI68",
@@ -91,7 +91,7 @@
       ],
       "repo": "ernestomicco2026-cell/HVAC-Clima-MG4",
       "icona": "icone/clima.png",
-      "icona_da": "apk:7ea58b125ccb6353de0136d10b6387504a59e66b6a7e1367c7575efbdc753a74",
+      "icona_da": "apk:1cfe94ad796c8bbaf73283b71e882cb76138c1a05193a1b54c886914f83f0ae9",
       "icona_sha": "9cb4a4c791505f17"
     },
     {
