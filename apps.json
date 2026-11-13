@@ -135,13 +135,13 @@
     },
     {
       "id": "games",
-      "versione": "0.4.10",
-      "file": "apk/games/MG4Games-0.4.10.apk",
-      "dimensione": 3118465,
-      "sha256": "824bd32a77461e2462eaefb9ac0c394482ad09a795af927d7af22e6f66640e2a",
-      "note": "Collega pad Bluetooth (Info): scritte più grandi e messaggio chiaro se l'auto rifiuta il pad. Sperimentale.",
+      "versione": "0.4.11",
+      "file": "apk/games/MG4Games-0.4.11.apk",
+      "dimensione": 3120348,
+      "sha256": "76453a515ea055179bdfa3df8d6c82ac906bd3c27432786dd2130add13c20130",
+      "note": "Collega pad Bluetooth (Info): pad in modalità Switch (S), collegamento dopo l'associazione corretto. Sperimentale.",
       "pacchetto": "com.mg4.games",
-      "codice_versione": 15,
+      "codice_versione": 16,
       "nome": "MG4 Games",
       "per": [
         "SWI68",
@@ -151,7 +151,7 @@
       ],
       "repo": "",
       "icona": "icone/games.png",
-      "icona_da": "apk:824bd32a77461e2462eaefb9ac0c394482ad09a795af927d7af22e6f66640e2a",
+      "icona_da": "apk:76453a515ea055179bdfa3df8d6c82ac906bd3c27432786dd2130add13c20130",
       "icona_sha": "029efb7ce7b715ca"
     },
     {
