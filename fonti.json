@@ -15,6 +15,10 @@
     { "id": "games", "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.8", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
       "note": "Collega pad Bluetooth (Info): diagnosi completa del Bluetooth dell'auto nei log. Sperimentale." },
 
+    { "id": "radiofix", "nome": "MG4 Radio Fix (prova v1.6)", "repo": "", "tipo": "locale", "versione": "1.0.0_EH32_SOP_2502201114-radiofix7", "per": ["SWI68"],
+      "richiede": { "pacchetto": "com.saicmotor.service.radio", "versione_inizia": "1.0.0_EH32_SOP_2502201114" },
+      "note": "PROVA v1.6, solo SWI68 R69/R73: AF in FM. Dopo l'installazione riavvia l'unita' (Home premuto per circa 20 s)." },
+
     { "id": "store", "nome": "Store", "repo": "ernestomicco2026-cell/Store", "tipo": "json", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] }
   ]
 }
