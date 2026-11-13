@@ -155,6 +155,25 @@
       "icona_sha": "029efb7ce7b715ca"
     },
     {
+      "id": "radiofix",
+      "versione": "1.0.0_EH32_SOP_2502201114-radiofix7",
+      "file": "apk/radiofix/RadioService_radiofix7_1.0.0_EH32_SOP_2502201114.apk",
+      "dimensione": 2689161,
+      "sha256": "e2100c294888261da73b80fce837e3091d6d90a994c70d8afa87853c13bdedff",
+      "note": "PROVA v1.6, solo SWI68 R69/R73: AF in FM. Dopo l'installazione riavvia l'unita' (Home premuto per circa 20 s).",
+      "pacchetto": "com.saicmotor.service.radio",
+      "codice_versione": 1,
+      "nome": "MG4 Radio Fix (prova v1.6)",
+      "per": [
+        "SWI68"
+      ],
+      "repo": "",
+      "richiede": {
+        "pacchetto": "com.saicmotor.service.radio",
+        "versione_inizia": "1.0.0_EH32_SOP_2502201114"
+      }
+    },
+    {
       "id": "store",
       "versione": "0.2.1",
       "file": "apk/store/MG4Store-0.2.1.apk",
