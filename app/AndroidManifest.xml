@@ -11,6 +11,12 @@
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <!-- controllo aggiornamenti in background che sopravvive al riavvio dell'auto -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- disinstallazione con un tocco (firma platform, come l'installazione) -->
+    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+    <!-- HomeRescue: riaccende la home MG originale se il launcher viene tolto (firma platform) -->
+    <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
+    <uses-permission android:name="android.permission.SET_PREFERRED_APPLICATIONS" />
 
     <application
         android:label="@string/app_name"
@@ -35,5 +41,17 @@
             android:name=".UpdateJob"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <!-- HomeRescue (dal repository Mg4-Launcher-SWI68, extra/HomeRescue): se com.mg4.launcher viene tolto dal
+             menu di Android riattiva la home MG originale, cosi' l'auto non resta su "Smartphone starting" -->
+        <receiver android:name="com.mg4.homerescue.HomeRescue" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

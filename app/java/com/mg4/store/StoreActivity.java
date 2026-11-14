@@ -350,7 +350,7 @@ public final class StoreActivity extends Activity {
         }
 
         int widthDp = getResources().getConfiguration().screenWidthDp - 56;
-        int cols = Math.max(2, Math.min(6, widthDp / 200));
+        int cols = Math.max(2, Math.min(5, widthDp / 260));   // riquadri grandi, leggibili alla guida
         GridLayout g = new GridLayout(this);
         g.setColumnCount(cols);
         g.setUseDefaultMargins(false);
@@ -405,25 +405,98 @@ public final class StoreActivity extends Activity {
     private View card(final Item it) {
         LinearLayout c = new LinearLayout(this);
         c.setOrientation(LinearLayout.VERTICAL);
-        c.setPadding(dp(18), dp(18), dp(18), dp(18));
-        c.setBackground(pressable(t.panel, 18));
+        c.setPadding(dp(22), dp(22), dp(22), dp(22));
+        c.setBackground(pressable(t.panel, 20));
         c.setOnClickListener(v -> showDetail(it));
 
-        c.addView(iconBox(it, 56), new LinearLayout.LayoutParams(dp(56), dp(56)));
-        TextView name = text(it.name, 17, t.text, true);
+        c.addView(iconBox(it, 80), new LinearLayout.LayoutParams(dp(80), dp(80)));
+        TextView name = text(it.name, 20, t.text, true);
         name.setSingleLine(true);
         name.setEllipsize(TextUtils.TruncateAt.END);
         LinearLayout.LayoutParams np = new LinearLayout.LayoutParams(-1, -2);
-        np.topMargin = dp(14);
+        np.topMargin = dp(16);
         c.addView(name, np);
-        TextView ver = text(it.version, 13, t.sub, false);
+        TextView ver = text(it.version, 15, t.sub, false);
+        ver.setPadding(0, dp(4), 0, 0);
         ver.setSingleLine(true);
         ver.setEllipsize(TextUtils.TruncateAt.END);
         c.addView(ver);
-        LinearLayout.LayoutParams btp = new LinearLayout.LayoutParams(-1, dp(44));
-        btp.topMargin = dp(16);
-        c.addView(actionButton(it), btp);
+        LinearLayout.LayoutParams btp = new LinearLayout.LayoutParams(-1, dp(52));
+        btp.topMargin = dp(18);
+        c.addView(actionRow(it, 52), btp);
         return c;
+    }
+
+    /** Pulsante principale (Installa / Aggiorna / Apri) e, se l'app c'e' sull'auto, il cestino per disinstallarla. */
+    private View actionRow(final Item it, int hDp) {
+        LinearLayout row = new LinearLayout(this);
+        row.addView(actionButton(it), new LinearLayout.LayoutParams(0, -1, 1));
+        boolean onCar = it.state == Item.INSTALLED || it.state == Item.UPDATE;
+        if (onCar && it.busy == null && !it.isSelf() && !it.pkg.isEmpty()) {
+            FrameLayout del = new FrameLayout(this);
+            del.setBackground(pressable(t.chip, 12));
+            del.setOnClickListener(v -> askUninstall(it));
+            del.setContentDescription(L.s(R.string.uninstall));
+            ImageView iv = new ImageView(this);
+            iv.setImageResource(R.drawable.ic_trash);
+            iv.setColorFilter(t.sub, PorterDuff.Mode.SRC_IN);
+            del.addView(iv, new FrameLayout.LayoutParams(dp(24), dp(24), Gravity.CENTER));
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(dp(hDp), -1);
+            lp.leftMargin = dp(10);
+            row.addView(del, lp);
+        }
+        return row;
+    }
+
+    /** Conferma prima di togliere un'app: un tocco sbagliato durante la guida non deve cancellarla. */
+    private void askUninstall(final Item it) {
+        if (installing) return;
+        detail = null;
+        overlay.removeAllViews();
+        LinearLayout p = sheet();
+        p.addView(text(L.f(R.string.uninstall_confirm, it.name), 21, t.text, true));
+        TextView sub = text(L.s(R.string.uninstall_sub), 15, t.sub, false);
+        sub.setLineSpacing(0, 1.25f);
+        sub.setPadding(0, dp(10), 0, 0);
+        p.addView(sub);
+        LinearLayout row = new LinearLayout(this);
+        TextView no = text(L.s(R.string.cancel), 15, t.text, true);
+        no.setGravity(Gravity.CENTER);
+        no.setBackground(pressable(t.chip, 12));
+        no.setOnClickListener(v -> closeOverlay());
+        row.addView(no, new LinearLayout.LayoutParams(0, dp(52), 1));
+        View gap = new View(this);
+        row.addView(gap, new LinearLayout.LayoutParams(dp(12), 1));
+        TextView yes = text(L.s(R.string.uninstall), 15, t.onText, true);
+        yes.setGravity(Gravity.CENTER);
+        yes.setBackground(pressable(t.text, 12));
+        yes.setOnClickListener(v -> {
+            closeOverlay();
+            uninstall(it);
+        });
+        row.addView(yes, new LinearLayout.LayoutParams(0, dp(52), 1));
+        LinearLayout.LayoutParams rp = new LinearLayout.LayoutParams(-1, -2);
+        rp.topMargin = dp(24);
+        p.addView(row, rp);
+        openOverlay(p, 0.45f, -1);
+    }
+
+    private void uninstall(final Item it) {
+        if (installing) return;
+        installing = true;
+        it.busy = L.s(R.string.uninstalling);
+        refreshViews();
+        Installer.uninstall(this, it.pkg, (ok, confirm, msg) -> main.post(() -> {
+            if (confirm) {
+                toast(L.s(R.string.confirm_needed));
+                return;
+            }
+            installing = false;
+            it.busy = null;
+            it.refresh(getPackageManager());
+            if (!ok) toast(L.s(R.string.uninstall_failed));
+            refreshViews();
+        }));
     }
 
     private TextView actionButton(final Item it) {
@@ -483,7 +556,7 @@ public final class StoreActivity extends Activity {
 
         LinearLayout.LayoutParams bp = new LinearLayout.LayoutParams(-1, dp(52));
         bp.topMargin = dp(16);
-        p.addView(actionButton(it), bp);
+        p.addView(actionRow(it, 52), bp);
         openOverlay(p, 0.55f, 0.82f);
     }
 

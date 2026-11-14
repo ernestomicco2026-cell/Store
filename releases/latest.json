@@ -1,5 +1,5 @@
 {
-  "version": "0.2.1",
-  "apk": "releases/MG4Store-0.2.1.apk",
-  "notes": "Schermo intero senza le barre di sistema, come il launcher; titolo Store al centro."
+  "version": "0.3.0",
+  "apk": "releases/MG4Store-0.3.0.apk",
+  "notes": "Riquadri delle app più grandi, pulsante Disinstalla con conferma, home MG originale riattivata se il launcher viene tolto."
 }

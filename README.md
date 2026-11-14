@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<a href="releases/MG4Store-0.2.1.apk"><img alt="Scarica / Download 0.2.1" src="https://img.shields.io/badge/Scarica%20%2F%20Download-0.2.1-2ea44f?style=for-the-badge&logo=android&logoColor=white"></a>
+<a href="releases/MG4Store-0.3.0.apk"><img alt="Scarica / Download 0.3.0" src="https://img.shields.io/badge/Scarica%20%2F%20Download-0.3.0-2ea44f?style=for-the-badge&logo=android&logoColor=white"></a>
 <a href="https://paypal.me/ErnestoMicco?locale.x=it_IT&country.x=IT"><img alt="Sostieni il progetto con PayPal · Support the project with PayPal" src="https://img.shields.io/badge/Sostieni%20%2F%20Support-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white"></a>
 </p>
 
@@ -68,6 +68,10 @@ computer. Si installa una volta sola, come una normale app; da lì in poi le alt
 - **Installa, Aggiorna, Apri**: lo store sa quali app hai già e a che versione. Durante il download il pulsante
   mostra la percentuale; l'installazione non chiede conferme e le app già installate si aggiornano senza
   disinstallarle.
+- **Disinstalla**: accanto al pulsante principale, il cestino toglie l'app dall'auto. Prima chiede una conferma,
+  così un tocco sbagliato durante la guida non cancella niente.
+- **Home MG di riserva**: se il launcher viene tolto dal menu App di Android, lo store riaccende la home MG originale,
+  così l'auto non resta ferma sulla schermata *Smartphone starting*.
 - **Dettaglio dell'app**: tocca un riquadro per vedere versione, dimensione, versione installata sull'auto e novità.
 - **Aggiorna tutto**: quando ci sono versioni nuove, sopra la griglia compare la barra *Aggiornamenti disponibili*
   con il tasto che le installa una dopo l'altra.
@@ -88,7 +92,7 @@ Scarica l'APK dalla cartella [`releases/`](releases/). Si installa come una norm
 
 #### Metodo 1: da chiavetta USB (senza computer)
 
-1. Copia `MG4Store-0.2.1.apk` su una chiavetta USB formattata **FAT32** o **exFAT**.
+1. Copia `MG4Store-0.3.0.apk` su una chiavetta USB formattata **FAT32** o **exFAT**.
 2. Inserisci la chiavetta nell'auto, apri il file manager e tocca l'APK.
 3. Se Android avvisa che non può installare app da questa fonte: tocca **Impostazioni**, attiva
    **Consenti da questa fonte** per il file manager e torna indietro.
@@ -101,7 +105,7 @@ Se l'installazione dà errore, usa il metodo 2.
 Serve un computer con [adb](https://developer.android.com/tools/releases/platform-tools) collegato all'auto.
 
 ```bash
-adb install -r -f MG4Store-0.2.1.apk
+adb install -r -f MG4Store-0.3.0.apk
 ```
 
 ### Aggiornamenti
@@ -144,6 +148,12 @@ Anche solo **2 €** sono un aiuto prezioso per continuare a sviluppare e provar
 [![Offrimi un caffè con PayPal](https://img.shields.io/badge/Offrimi%20un%20caff%C3%A8-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/ErnestoMicco?locale.x=it_IT&country.x=IT)
 
 ### Versioni
+
+#### 0.3.0
+- **Riquadri delle app più grandi**, più facili da leggere e da toccare.
+- Pulsante **Disinstalla** (il cestino), con conferma.
+- Se il launcher viene tolto dal menu App di Android, lo store **riaccende la home MG originale**: l'auto non resta
+  su *Smartphone starting*.
 
 #### 0.2.1
 - Lo store si apre **a schermo intero**, senza le barre di sistema, come il launcher.
@@ -193,6 +203,10 @@ computer. You install it once, like a normal app; from then on the other apps ar
 - **Install, Update, Open**: the store knows which apps you already have and which version. While downloading, the
   button shows the percentage; installing asks for no confirmation, and installed apps update without being
   removed first.
+- **Uninstall**: next to the main button, the bin removes the app from the car. It asks for confirmation first, so a
+  wrong tap while driving deletes nothing.
+- **Spare MG home**: if the launcher is removed from the Android Apps menu, the store turns the original MG home back
+  on, so the car doesn't get stuck on the *Smartphone starting* screen.
 - **App details**: tap a tile to see version, size, the version installed in the car and what's new.
 - **Update all**: when new versions are out, an *Updates available* bar appears above the grid with a button that
   installs them one after the other.
@@ -213,7 +227,7 @@ Download the APK from the [`releases/`](releases/) folder. It installs like a no
 
 #### Method 1: from a USB stick (no computer)
 
-1. Copy `MG4Store-0.2.1.apk` to a USB stick formatted **FAT32** or **exFAT**.
+1. Copy `MG4Store-0.3.0.apk` to a USB stick formatted **FAT32** or **exFAT**.
 2. Plug the stick into the car, open the file manager and tap the APK.
 3. If Android says it can't install apps from this source: tap **Settings**, enable **Allow from this source**
    for the file manager and go back.
@@ -226,7 +240,7 @@ If the installation fails, use method 2.
 You need a computer with [adb](https://developer.android.com/tools/releases/platform-tools) connected to the car.
 
 ```bash
-adb install -r -f MG4Store-0.2.1.apk
+adb install -r -f MG4Store-0.3.0.apk
 ```
 
 ### Updates
@@ -270,6 +284,12 @@ Even just **€2** is a precious help to keep developing and testing new version
 [![Buy me a coffee with PayPal](https://img.shields.io/badge/Buy%20me%20a%20coffee-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/ErnestoMicco?locale.x=it_IT&country.x=IT)
 
 ### Changelog
+
+#### 0.3.0
+- **Bigger app tiles**, easier to read and to tap.
+- **Uninstall** button (the bin), with confirmation.
+- If the launcher is removed from the Android Apps menu, the store **turns the original MG home back on**: the car
+  doesn't get stuck on *Smartphone starting*.
 
 #### 0.2.1
 - The store opens **full screen**, without the system bars, like the launcher.

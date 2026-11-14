@@ -23,6 +23,41 @@ public final class Installer {
 
     private Installer() {}
 
+    /** Disinstalla un'app senza conferma di sistema (firma platform); il risultato arriva in cb. */
+    public static void uninstall(final Context ctx, String pkg, final Result cb) {
+        final Context app = ctx.getApplicationContext();
+        final String action = ACTION + ".del." + pkg;
+        BroadcastReceiver r = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context c, Intent i) {
+                int st = i.getIntExtra(PackageInstaller.EXTRA_STATUS, PackageInstaller.STATUS_FAILURE);
+                if (st == PackageInstaller.STATUS_PENDING_USER_ACTION) {
+                    Intent confirm = i.getParcelableExtra(Intent.EXTRA_INTENT);
+                    if (confirm != null) app.startActivity(confirm.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                    cb.done(false, true, null);
+                    return;
+                }
+                try {
+                    app.unregisterReceiver(this);
+                } catch (Exception ignored) {
+                }
+                cb.done(st == PackageInstaller.STATUS_SUCCESS, false, i.getStringExtra(PackageInstaller.EXTRA_STATUS_MESSAGE));
+            }
+        };
+        app.registerReceiver(r, new IntentFilter(action));
+        try {
+            PendingIntent pend = PendingIntent.getBroadcast(app, pkg.hashCode(),
+                    new Intent(action).setPackage(app.getPackageName()), PendingIntent.FLAG_UPDATE_CURRENT);
+            app.getPackageManager().getPackageInstaller().uninstall(pkg, pend.getIntentSender());
+        } catch (Exception e) {
+            try {
+                app.unregisterReceiver(r);
+            } catch (Exception ignored) {
+            }
+            cb.done(false, false, e.toString());
+        }
+    }
+
     public static void install(final Context ctx, String pkg, byte[] apk, final Result cb) throws Exception {
         final Context app = ctx.getApplicationContext();
         PackageInstaller pi = app.getPackageManager().getPackageInstaller();
