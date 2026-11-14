@@ -175,13 +175,13 @@
     },
     {
       "id": "store",
-      "versione": "0.2.1",
-      "file": "apk/store/MG4Store-0.2.1.apk",
-      "dimensione": 62971,
-      "sha256": "2283d93d0769092a5b26caa85d48a5187e94daff5045e22941343f5b12d03431",
-      "note": "Schermo intero senza le barre di sistema, come il launcher; titolo Store al centro.",
+      "versione": "0.3.0",
+      "file": "apk/store/MG4Store-0.3.0.apk",
+      "dimensione": 71234,
+      "sha256": "b6a87f509c5be68bea7aa3aa41e2f932bca3245e18d03a3a5616086143190c57",
+      "note": "Riquadri delle app più grandi, pulsante Disinstalla con conferma, home MG originale riattivata se il launcher viene tolto.",
       "pacchetto": "com.mg4.store",
-      "codice_versione": 4,
+      "codice_versione": 5,
       "nome": "Store",
       "per": [
         "SWI68",
@@ -191,7 +191,7 @@
       ],
       "repo": "ernestomicco2026-cell/Store",
       "icona": "icone/store.png",
-      "icona_da": "apk:2283d93d0769092a5b26caa85d48a5187e94daff5045e22941343f5b12d03431",
+      "icona_da": "apk:b6a87f509c5be68bea7aa3aa41e2f932bca3245e18d03a3a5616086143190c57",
       "icona_sha": "b6a78fd71acf0cba"
     }
   ]
