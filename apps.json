@@ -134,46 +134,6 @@
       "icona_sha": "c8b10a1dc4460045"
     },
     {
-      "id": "games",
-      "versione": "0.4.12",
-      "file": "apk/games/MG4Games-0.4.12.apk",
-      "dimensione": 3121336,
-      "sha256": "3e2dd379443f68baa443217f86ad5133be20e46f3b526b45750b687d4728d177",
-      "note": "Log con crash e riavvii recenti dell'infotainment (diagnosi pad Bluetooth).",
-      "pacchetto": "com.mg4.games",
-      "codice_versione": 17,
-      "nome": "MG4 Games",
-      "per": [
-        "SWI68",
-        "SWI69",
-        "SWI132",
-        "SWI133"
-      ],
-      "repo": "",
-      "icona": "icone/games.png",
-      "icona_da": "apk:3e2dd379443f68baa443217f86ad5133be20e46f3b526b45750b687d4728d177",
-      "icona_sha": "029efb7ce7b715ca"
-    },
-    {
-      "id": "radiofix",
-      "versione": "1.0.0_EH32_SOP_2502201114-radiofix7",
-      "file": "apk/radiofix/RadioService_radiofix7_1.0.0_EH32_SOP_2502201114.apk",
-      "dimensione": 2689161,
-      "sha256": "e2100c294888261da73b80fce837e3091d6d90a994c70d8afa87853c13bdedff",
-      "note": "PROVA v1.6, solo SWI68 R69/R73: AF in FM. Dopo l'installazione riavvia l'unita' (Home premuto per circa 20 s).",
-      "pacchetto": "com.saicmotor.service.radio",
-      "codice_versione": 1,
-      "nome": "MG4 Radio Fix (prova v1.6)",
-      "per": [
-        "SWI68"
-      ],
-      "repo": "",
-      "richiede": {
-        "pacchetto": "com.saicmotor.service.radio",
-        "versione_inizia": "1.0.0_EH32_SOP_2502201114"
-      }
-    },
-    {
       "id": "store",
       "versione": "0.3.0",
       "file": "apk/store/MG4Store-0.3.0.apk",
