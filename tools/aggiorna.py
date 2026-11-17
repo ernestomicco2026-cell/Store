@@ -188,6 +188,10 @@ def main():
             if "pacchetto" not in voce:
                 voce.update(pacchetto(file_abs))
             voce.update({"nome": a["nome"], "per": a.get("per", []), "repo": a["repo"]})
+            if a.get("nascosta"):
+                # resta nello Store (APK e icona) ma non compare sulle auto
+                print(f"NASCOSTA {a['id']}")
+                continue
             aggiorna_icona(voce, a, file_abs)
             if a.get("richiede"):
                 voce["richiede"] = a["richiede"]
@@ -197,7 +201,7 @@ def main():
         except Exception as e:
             errori += 1
             print(f"ERRORE {a['id']}: {e}", file=sys.stderr)
-            if prima:
+            if prima and not a.get("nascosta"):
                 nuovo.append(prima)
 
     # toglie le cartelle delle app eliminate da fonti.json

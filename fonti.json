@@ -1,5 +1,5 @@
 {
-  "_info": "Elenco delle app dello store. Per aggiungere un'app copia un blocco e cambia i valori. tipo: json = releases/latest.json del repo; cartella = APK piu' recente nella cartella releases/; release = file allegato alle Release di GitHub; locale = APK caricato a mano nella cartella apk/<id>/ dello Store. per = versioni del software su cui funziona. richiede = (facoltativo) l'app compare solo se sull'auto c'e' quel pacchetto con quella versione.",
+  "_info": "Elenco delle app dello store. Per aggiungere un'app copia un blocco e cambia i valori. tipo: json = releases/latest.json del repo; cartella = APK piu' recente nella cartella releases/; release = file allegato alle Release di GitHub; locale = APK caricato a mano nella cartella apk/<id>/ dello Store. per = versioni del software su cui funziona. nascosta = true: l'app resta nello Store ma non compare sulle auto (basta togliere la voce per rimostrarla). richiede = (facoltativo) l'app compare solo se sull'auto c'e' quel pacchetto con quella versione.",
   "app": [
     { "id": "launcher-swi68",  "nome": "MG4 Launcher",            "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI68",  "tipo": "json", "per": ["SWI68"] },
     { "id": "launcher-swi69",  "nome": "MG4 Launcher",            "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI69",  "tipo": "json", "per": ["SWI69"] },
@@ -12,10 +12,10 @@
 
     { "id": "taskmanager", "nome": "MG4 Task Manager", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
-    { "id": "games", "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.12", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
+    { "id": "games", "nascosta": true, "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.12", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
       "note": "Log con crash e riavvii recenti dell'infotainment (diagnosi pad Bluetooth)." },
 
-    { "id": "radiofix", "nome": "MG4 Radio Fix (prova v1.6)", "repo": "", "tipo": "locale", "versione": "1.0.0_EH32_SOP_2502201114-radiofix7", "per": ["SWI68"],
+    { "id": "radiofix", "nascosta": true, "nome": "MG4 Radio Fix (prova v1.6)", "repo": "", "tipo": "locale", "versione": "1.0.0_EH32_SOP_2502201114-radiofix7", "per": ["SWI68"],
       "richiede": { "pacchetto": "com.saicmotor.service.radio", "versione_inizia": "1.0.0_EH32_SOP_2502201114" },
       "note": "PROVA v1.6, solo SWI68 R69/R73: AF in FM. Dopo l'installazione riavvia l'unita' (Home premuto per circa 20 s)." },
 
