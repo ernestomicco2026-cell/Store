@@ -75,13 +75,13 @@
     },
     {
       "id": "clima",
-      "versione": "1.4.4",
-      "file": "apk/clima/MG4Clima-1.4.4.apk",
-      "dimensione": 518935,
-      "sha256": "1cfe94ad796c8bbaf73283b71e882cb76138c1a05193a1b54c886914f83f0ae9",
-      "note": "La verifica rimette sempre com'erano sedili, volante e ricircolo. Clima dalla barra con Android Auto e CarPlay, ritorno alla proiezione alla chiusura. Nuova opzione: chiudi da solo dopo N secondi. Tema giorno/notte letto dal sistema.",
+      "versione": "1.4.5",
+      "file": "apk/clima/MG4Clima-1.4.5.apk",
+      "dimensione": 527127,
+      "sha256": "b88ef675e1253641f65da58ff342c79d677257c2c675886ce67ab23dff4453fd",
+      "note": "Clima dalla barra in alto durante Android Auto e CarPlay: ora si apre davvero, anche come pannello sopra la proiezione. La tendina clima originale si chiude solo se MG4 Clima compare davvero. Se MG4 Launcher viene tolto, MG4 Clima riaccende la home originale dell'auto.",
       "pacchetto": "com.mg4.clima",
-      "codice_versione": 138,
+      "codice_versione": 139,
       "nome": "MG4 Clima",
       "per": [
         "SWI68",
@@ -91,25 +91,25 @@
       ],
       "repo": "ernestomicco2026-cell/HVAC-Clima-MG4",
       "icona": "icone/clima.png",
-      "icona_da": "apk:1cfe94ad796c8bbaf73283b71e882cb76138c1a05193a1b54c886914f83f0ae9",
+      "icona_da": "apk:b88ef675e1253641f65da58ff342c79d677257c2c675886ce67ab23dff4453fd",
       "icona_sha": "9cb4a4c791505f17"
     },
     {
       "id": "voice",
-      "versione": "1.0.0-beta.10",
-      "file": "apk/voice/MG4Voice-1.0.0-beta.10.apk",
-      "dimensione": 13693831,
-      "sha256": "13ca14118e8e607b2b2255548893e22b67c218736ec4ca21ee6d93ea3f57dbf6",
+      "versione": "1.0.0-beta.11",
+      "file": "apk/voice/MG4Voice-1.0.0-beta.11.apk",
+      "dimensione": 13702023,
+      "sha256": "5555c34ca211dfa9e14fb92f1b5be001bbe7c32ee7631e503354838298e61bc1",
       "note": "",
       "pacchetto": "com.mg4.voice",
-      "codice_versione": 110,
+      "codice_versione": 111,
       "nome": "MG4 Voice",
       "per": [
         "SWI68"
       ],
       "repo": "ernestomicco2026-cell/Mg4-Voice",
       "icona": "icone/voice.png",
-      "icona_da": "apk:13ca14118e8e607b2b2255548893e22b67c218736ec4ca21ee6d93ea3f57dbf6",
+      "icona_da": "apk:5555c34ca211dfa9e14fb92f1b5be001bbe7c32ee7631e503354838298e61bc1",
       "icona_sha": "12393247daa2de1f"
     },
     {
