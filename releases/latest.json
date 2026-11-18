@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
-  "apk": "releases/MG4Store-0.3.0.apk",
-  "notes": "Riquadri delle app più grandi, pulsante Disinstalla con conferma, home MG originale riattivata se il launcher viene tolto."
+  "version": "0.3.1",
+  "apk": "releases/MG4Store-0.3.1.apk",
+  "notes": "Catalogo salvato e mostrato anche senza internet, nuovo tentativo automatico al ritorno della rete, schermate di errore con codice breve, griglia che non salta durante i download, riapertura dopo l'aggiornamento."
 }

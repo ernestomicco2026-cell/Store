@@ -42,6 +42,13 @@
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
+        <!-- riapre lo Store dopo che si e' aggiornato da solo -->
+        <receiver android:name=".SelfUpdated" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
         <!-- HomeRescue (dal repository Mg4-Launcher-SWI68, extra/HomeRescue): se com.mg4.launcher viene tolto dal
              menu di Android riattiva la home MG originale, cosi' l'auto non resta su "Smartphone starting" -->
         <receiver android:name="com.mg4.homerescue.HomeRescue" android:exported="true">

@@ -87,7 +87,7 @@ public final class Api {
         } catch (Fail f) {
             throw f;
         } catch (Exception e) {
-            throw new Fail(-1, e.toString());
+            throw new Fail(-1, "DATI-1");
         }
     }
 
@@ -97,7 +97,7 @@ public final class Api {
         } catch (Fail f) {
             throw f;
         } catch (Exception e) {
-            throw new Fail(-1, e.toString());
+            throw new Fail(-1, "DATI-1");
         }
     }
 
@@ -107,7 +107,7 @@ public final class Api {
         } catch (Fail f) {
             throw f;
         } catch (Exception e) {
-            throw new Fail(-1, e.toString());
+            throw new Fail(-1, "DATI-1");
         }
     }
 
@@ -143,10 +143,41 @@ public final class Api {
         } catch (Fail f) {
             throw f;
         } catch (IOException e) {
-            throw new Fail(0, e.toString());
+            throw new Fail(0, netCode(e));
         } finally {
             if (c != null) c.disconnect();
         }
+    }
+
+    /**
+     * Codice breve per gli errori di collegamento (al posto del testo grezzo di Android, che e' lungo e
+     * mostra l'indirizzo del server). RETE-0 = nessuna rete sull'auto, gli altri = rete presente ma il server
+     * non si raggiunge.
+     */
+    static String netCode(IOException e) {
+        if (e instanceof java.net.UnknownHostException) return "RETE-1";
+        if (e instanceof java.net.SocketTimeoutException) return "RETE-2";
+        if (e instanceof javax.net.ssl.SSLException) return "RETE-3";
+        if (e instanceof java.net.ConnectException) return "RETE-4";
+        return "RETE-5";
+    }
+
+    /** true se l'auto ha una rete attiva (non garantisce che il server risponda). */
+    @SuppressWarnings("deprecation")
+    static boolean online(Context c) {
+        try {
+            android.net.ConnectivityManager cm =
+                    (android.net.ConnectivityManager) c.getSystemService(Context.CONNECTIVITY_SERVICE);
+            android.net.NetworkInfo ni = cm == null ? null : cm.getActiveNetworkInfo();
+            return ni != null && ni.isConnected();
+        } catch (Throwable t) {
+            return true;   // nel dubbio si prova
+        }
+    }
+
+    /** Codice breve di un errore: "HTTP 502", "RETE-1", "DATI-1". */
+    static String code(Fail f) {
+        return f.code > 0 ? "HTTP " + f.code : (f.getMessage() == null || f.getMessage().isEmpty() ? "RETE-5" : f.getMessage());
     }
 
     private static byte[] readAll(InputStream in, long total, Progress p) throws IOException {

@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<a href="releases/MG4Store-0.3.0.apk"><img alt="Scarica / Download 0.3.0" src="https://img.shields.io/badge/Scarica%20%2F%20Download-0.3.0-2ea44f?style=for-the-badge&logo=android&logoColor=white"></a>
+<a href="releases/MG4Store-0.3.1.apk"><img alt="Scarica / Download 0.3.1" src="https://img.shields.io/badge/Scarica%20%2F%20Download-0.3.1-2ea44f?style=for-the-badge&logo=android&logoColor=white"></a>
 <a href="https://paypal.me/ErnestoMicco?locale.x=it_IT&country.x=IT"><img alt="Sostieni il progetto con PayPal · Support the project with PayPal" src="https://img.shields.io/badge/Sostieni%20%2F%20Support-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white"></a>
 </p>
 
@@ -92,7 +92,7 @@ Scarica l'APK dalla cartella [`releases/`](releases/). Si installa come una norm
 
 #### Metodo 1: da chiavetta USB (senza computer)
 
-1. Copia `MG4Store-0.3.0.apk` su una chiavetta USB formattata **FAT32** o **exFAT**.
+1. Copia `MG4Store-0.3.1.apk` su una chiavetta USB formattata **FAT32** o **exFAT**.
 2. Inserisci la chiavetta nell'auto, apri il file manager e tocca l'APK.
 3. Se Android avvisa che non può installare app da questa fonte: tocca **Impostazioni**, attiva
    **Consenti da questa fonte** per il file manager e torna indietro.
@@ -105,7 +105,7 @@ Se l'installazione dà errore, usa il metodo 2.
 Serve un computer con [adb](https://developer.android.com/tools/releases/platform-tools) collegato all'auto.
 
 ```bash
-adb install -r -f MG4Store-0.3.0.apk
+adb install -r -f MG4Store-0.3.1.apk
 ```
 
 ### Aggiornamenti
@@ -132,8 +132,9 @@ posizione, niente dati del veicolo, niente dati personali.
 
 ### Segnalare un problema
 
-Se lo store non carica, sotto il messaggio di errore compare in piccolo il motivo tecnico (per esempio
-`HTTP 502`): uno screenshot di quella schermata basta per capire cosa succede. Le segnalazioni si aprono nella
+Se lo store non carica, sotto il messaggio di errore compare un codice breve (per esempio `RETE-1` o
+`HTTP 502`): uno screenshot di quella schermata basta per capire cosa succede. `RETE-0` vuol dire che l'auto non è
+collegata a internet. Le segnalazioni si aprono nella
 sezione [Issues](../../issues) di questo repository.
 
 ### Sostieni il progetto
@@ -148,6 +149,18 @@ Anche solo **2 €** sono un aiuto prezioso per continuare a sviluppare e provar
 [![Offrimi un caffè con PayPal](https://img.shields.io/badge/Offrimi%20un%20caff%C3%A8-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/ErnestoMicco?locale.x=it_IT&country.x=IT)
 
 ### Versioni
+
+#### 0.3.1
+- **Senza internet** lo store mostra l'ultimo catalogo scaricato, con una striscia che dice da quando è offline:
+  le app installate si aprono e si disinstallano anche senza rete.
+- Quando la rete torna, lo store **riprova da solo**.
+- Schermate di caricamento ed errore rifatte: indicatore animato, testo chiaro e un **codice breve** (per esempio
+  `RETE-1` o `HTTP 502`) da mandare nelle segnalazioni, al posto del messaggio tecnico di Android.
+- Il pulsante di aggiornamento in alto non cancella più la griglia mentre ricarica.
+- Durante il download la griglia non salta più in cima a ogni avanzamento.
+- Se un'installazione non riesce, il messaggio dice il motivo con un codice breve.
+- Dopo essersi aggiornato da solo, lo store si riapre.
+- Corretto un caso in cui lo store poteva restare bloccato se Android chiedeva una conferma.
 
 #### 0.3.0
 - **Riquadri delle app più grandi**, più facili da leggere e da toccare.
@@ -227,7 +240,7 @@ Download the APK from the [`releases/`](releases/) folder. It installs like a no
 
 #### Method 1: from a USB stick (no computer)
 
-1. Copy `MG4Store-0.3.0.apk` to a USB stick formatted **FAT32** or **exFAT**.
+1. Copy `MG4Store-0.3.1.apk` to a USB stick formatted **FAT32** or **exFAT**.
 2. Plug the stick into the car, open the file manager and tap the APK.
 3. If Android says it can't install apps from this source: tap **Settings**, enable **Allow from this source**
    for the file manager and go back.
@@ -240,7 +253,7 @@ If the installation fails, use method 2.
 You need a computer with [adb](https://developer.android.com/tools/releases/platform-tools) connected to the car.
 
 ```bash
-adb install -r -f MG4Store-0.3.0.apk
+adb install -r -f MG4Store-0.3.1.apk
 ```
 
 ### Updates
@@ -268,8 +281,9 @@ no personal data.
 
 ### Reporting a problem
 
-If the store doesn't load, the technical reason appears in small print under the error message (for example
-`HTTP 502`): a screenshot of that screen is enough to understand what's going on. Reports go in this repository's
+If the store doesn't load, a short code appears under the error message (for example `RETE-1` or `HTTP 502`): a
+screenshot of that screen is enough to understand what's going on. `RETE-0` means the car isn't connected to the
+internet. Reports go in this repository's
 [Issues](../../issues).
 
 ### Support the project
@@ -284,6 +298,18 @@ Even just **€2** is a precious help to keep developing and testing new version
 [![Buy me a coffee with PayPal](https://img.shields.io/badge/Buy%20me%20a%20coffee-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/ErnestoMicco?locale.x=it_IT&country.x=IT)
 
 ### Changelog
+
+#### 0.3.1
+- **Without internet** the store shows the last downloaded catalog, with a bar saying how long it has been offline:
+  installed apps can still be opened and uninstalled.
+- When the network comes back, the store **tries again by itself**.
+- Loading and error screens redone: animated indicator, clear text and a **short code** (for example `RETE-1` or
+  `HTTP 502`) to include in reports, instead of Android's technical message.
+- The refresh button at the top no longer clears the grid while reloading.
+- While downloading, the grid no longer jumps back to the top at every step.
+- If an installation fails, the message gives the reason with a short code.
+- After updating itself, the store reopens.
+- Fixed a case where the store could get stuck if Android asked for a confirmation.
 
 #### 0.3.0
 - **Bigger app tiles**, easier to read and to tap.

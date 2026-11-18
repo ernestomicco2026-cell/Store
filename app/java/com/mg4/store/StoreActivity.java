@@ -23,13 +23,21 @@ import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -59,8 +67,22 @@ public final class StoreActivity extends Activity {
     private int state = S_LOADING;
     private List<Item> items = new ArrayList<>();
     private boolean installing;
-    /** Motivo tecnico dell'ultimo errore, mostrato in piccolo sotto il messaggio. */
+    /** Codice breve dell'ultimo errore (es. RETE-1, HTTP 502), mostrato in piccolo sotto il messaggio. */
     private String lastError = "";
+    /** Se > 0 la griglia mostra l'ultimo catalogo salvato (rete o server assenti): ora del salvataggio. */
+    private long cachedAt;
+    /** Il catalogo salvato e' mostrato perche' l'auto non ha rete (true) o perche' il server non risponde (false). */
+    private boolean cachedOffline;
+    /** Aggiornamento del catalogo in corso con la griglia gia' visibile (indicatore piccolo in alto). */
+    private boolean refreshing;
+    /** Una richiesta del catalogo e' gia' in corso (si evitano doppioni, es. Riprova premuto due volte). */
+    private boolean loading;
+    private FrameLayout refreshBtn;
+    private ScrollView gridScroll;
+    private int gridScrollY;
+    /** Pulsanti visibili di ogni app: la percentuale si aggiorna li', senza ridisegnare tutta la schermata. */
+    private final Map<Item, List<TextView>> buttons = new HashMap<>();
+    private android.net.ConnectivityManager.NetworkCallback netCallback;
 
     private FrameLayout root;
     private FrameLayout body;
@@ -78,6 +100,26 @@ public final class StoreActivity extends Activity {
         UpdateJob.clear(this);
         build();
         load();
+        watchNetwork();
+    }
+
+    /** Quando torna la rete, se si stava mostrando un errore o il catalogo salvato, riprova da solo. */
+    private void watchNetwork() {
+        try {
+            android.net.ConnectivityManager cm =
+                    (android.net.ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            netCallback = new android.net.ConnectivityManager.NetworkCallback() {
+                @Override
+                public void onAvailable(android.net.Network n) {
+                    main.postDelayed(() -> {
+                        boolean stale = state == S_OFFLINE || state == S_ERROR || cachedAt > 0;
+                        if (stale && !installing) load();
+                    }, 2000);
+                }
+            };
+            cm.registerDefaultNetworkCallback(netCallback);
+        } catch (Throwable ignored) {
+        }
     }
 
     @Override
@@ -116,6 +158,13 @@ public final class StoreActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+        try {
+            if (netCallback != null) {
+                ((android.net.ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE))
+                        .unregisterNetworkCallback(netCallback);
+            }
+        } catch (Throwable ignored) {
+        }
         net.shutdownNow();
         super.onDestroy();
     }
@@ -123,41 +172,99 @@ public final class StoreActivity extends Activity {
     // ---------------------------------------------------------------- dati
 
     private void load() {
-        state = S_LOADING;
-        lastError = "";
-        showBody();
+        if (loading) return;
+        loading = true;
+        // con la griglia gia' visibile non la si cancella: indicatore piccolo al posto del pulsante di aggiornamento
+        boolean quiet = state == S_READY && !items.isEmpty();
+        if (quiet) {
+            refreshing = true;
+            updateRefreshButton();
+        } else {
+            state = S_LOADING;
+            lastError = "";
+            showBody();
+        }
         net.execute(() -> {
             fw = Firmware.kind(this);
             int st;
+            String err = "";
             List<Item> list = new ArrayList<>();
+            boolean noNet = false;
             if (!Firmware.isMg4()) {
                 st = S_NOT_MG4;
+            } else if (!Api.online(this)) {
+                st = S_OFFLINE;
+                err = "RETE-0";
+                noNet = true;
             } else {
                 try {
                     api.register(fw);
                     JSONObject cat = api.catalog();
                     list = Item.parse(cat, fw, getPackageManager());
+                    saveCatalog(cat);
                     st = S_READY;
                 } catch (Api.Fail f) {
-                    lastError = (f.code > 0 ? "HTTP " + f.code + " " : "") + (f.getMessage() == null ? "" : f.getMessage());
-                    if (f.offline()) st = S_OFFLINE;
-                    else if (f.code == 403 && f.getMessage() != null && f.getMessage().contains("supportato")) st = S_NOT_MG4;
+                    err = Api.code(f);
+                    if (f.code == 403 && f.getMessage() != null && f.getMessage().contains("supportato")) st = S_NOT_MG4;
                     else if (f.code == 403) st = S_BLOCKED;
                     else st = S_ERROR;
                 } catch (Throwable e) {
-                    lastError = e.toString();
+                    err = "APP-1";
                     st = S_ERROR;
+                }
+            }
+            // rete o server assenti: si mostra l'ultimo catalogo salvato, con la striscia "offline"
+            long cached = 0;
+            if (st == S_OFFLINE || st == S_ERROR) {
+                JSONObject c = readCatalog();
+                if (c != null) {
+                    list = Item.parse(c, fw, getPackageManager());
+                    cached = prefs.getLong("cat_time", 0);
+                    if (cached <= 0) cached = 1;
+                    st = S_READY;
                 }
             }
             final int fst = st;
             final List<Item> fl = list;
+            final String ferr = err;
+            final long fc = cached;
+            final boolean fnoNet = noNet;
             main.post(() -> {
                 state = fst;
                 items = fl;
+                lastError = ferr;
+                cachedAt = fc;
+                cachedOffline = fnoNet;
+                refreshing = false;
+                loading = false;
+                updateRefreshButton();
                 showBody();
             });
             if (!fl.isEmpty() && Icons.load(this, api, fl)) main.post(this::refreshViews);
         });
+    }
+
+    private void saveCatalog(JSONObject cat) {
+        try (FileOutputStream os = new FileOutputStream(new File(getFilesDir(), "catalogo.json"))) {
+            os.write(cat.toString().getBytes(StandardCharsets.UTF_8));
+            prefs.edit().putLong("cat_time", System.currentTimeMillis()).apply();
+        } catch (Throwable ignored) {
+        }
+    }
+
+    private JSONObject readCatalog() {
+        try {
+            File f = new File(getFilesDir(), "catalogo.json");
+            if (!f.isFile()) return null;
+            byte[] b = new byte[(int) f.length()];
+            try (java.io.FileInputStream in = new java.io.FileInputStream(f)) {
+                int off = 0, n;
+                while (off < b.length && (n = in.read(b, off, b.length - off)) > 0) off += n;
+            }
+            return new JSONObject(new String(b, StandardCharsets.UTF_8));
+        } catch (Throwable e) {
+            return null;
+        }
     }
 
     private void act(final Item it) {
@@ -167,6 +274,10 @@ public final class StoreActivity extends Activity {
             return;
         }
         if (installing) return;
+        if (cachedAt > 0) {
+            toast(L.s(cachedOffline ? R.string.offline : R.string.error));
+            return;
+        }
         installing = true;
         installOne(it, () -> installing = false);
     }
@@ -174,6 +285,10 @@ public final class StoreActivity extends Activity {
     /** Aggiorna, una dopo l'altra, tutte le app con una versione nuova; lo Store per ultimo (si riavvia). */
     private void updateAll() {
         if (installing) return;
+        if (cachedAt > 0) {
+            toast(L.s(cachedOffline ? R.string.offline : R.string.error));
+            return;
+        }
         final List<Item> queue = new ArrayList<>();
         Item self = null;
         for (Item it : items) {
@@ -199,49 +314,87 @@ public final class StoreActivity extends Activity {
         installOne(it, () -> next(queue));
     }
 
-    /** Scarica e installa un'app; alla fine chiama 'then' sul thread principale. */
+    /** Un'operazione (installazione o disinstallazione) si chiude una volta sola: risultato o tempo scaduto. */
+    private static final class Op {
+        boolean done;
+    }
+
+    /** Scarica e installa un'app; alla fine chiama 'then' sul thread principale (una volta sola). */
     private void installOne(final Item it, final Runnable then) {
-        it.busy = "0%";
+        setBusy(it, "0%");
         refreshViews();
+        if (it.isSelf()) {
+            // lo Store si sta aggiornando da solo: dopo l'installazione SelfUpdated lo riapre
+            prefs.edit().putBoolean("relaunch", true).commit();
+        }
+        final Op op = new Op();
         net.execute(() -> {
+            byte[] apk;
             try {
-                byte[] apk = api.download(it.file, (done, total) -> {
-                    if (total > 0) {
-                        String pct = (int) Math.min(99, done * 100 / total) + "%";
-                        main.post(() -> {
-                            it.busy = pct;
-                            refreshViews();
-                        });
-                    }
+                final int[] last = {-1};
+                apk = api.download(it.file, (done, total) -> {
+                    if (total <= 0) return;
+                    int pct = (int) Math.min(99, done * 100 / total);
+                    if (pct == last[0]) return;
+                    last[0] = pct;
+                    main.post(() -> setBusy(it, pct + "%"));
                 });
-                main.post(() -> {
-                    it.busy = L.s(R.string.installing);
-                    refreshViews();
-                });
+            } catch (Api.Fail f) {
+                main.post(() -> end(op, it, false, Api.code(f), then));
+                return;
+            } catch (Throwable e) {
+                main.post(() -> end(op, it, false, "APP-2", then));
+                return;
+            }
+            main.post(() -> setBusy(it, L.s(R.string.installing)));
+            try {
                 Installer.install(this, it.pkg, apk, (ok, confirm, msg) -> main.post(() -> {
                     if (confirm) {
-                        it.busy = L.s(R.string.installing);
                         toast(L.s(R.string.confirm_needed));
-                        refreshViews();
-                        return;
+                        return;   // il risultato vero arriva dopo la conferma
                     }
-                    finishInstall(it, ok);
-                    then.run();
+                    end(op, it, ok, installCode(msg), then);
                 }));
-            } catch (Exception e) {
-                main.post(() -> {
-                    finishInstall(it, false);
-                    then.run();
-                });
+            } catch (Throwable e) {
+                main.post(() -> end(op, it, false, "INST-1", then));
+                return;
             }
+            // sicurezza: se Android non risponde entro 3 minuti l'operazione si chiude, cosi' lo Store non resta bloccato
+            main.postDelayed(() -> end(op, it, false, "TEMPO", then), 180_000);
         });
     }
 
-    private void finishInstall(Item it, boolean ok) {
+    private void end(Op op, Item it, boolean ok, String code, Runnable then) {
+        if (op.done) return;
+        op.done = true;
+        if (!ok && it.isSelf()) prefs.edit().remove("relaunch").apply();   // niente riapertura se non si e' aggiornato
         it.busy = null;
         it.refresh(getPackageManager());
-        if (!ok) toast(L.s(R.string.failed));
+        if (!ok) toast(L.s(R.string.failed) + (code == null || code.isEmpty() ? "" : " · " + code));
         refreshViews();
+        then.run();
+    }
+
+    /** Codice breve dal messaggio di Android (es. INSTALL_FAILED_INSUFFICIENT_STORAGE -> INSUFFICIENT_STORAGE). */
+    private static String installCode(String msg) {
+        if (msg == null) return "INST-2";
+        java.util.regex.Matcher m = java.util.regex.Pattern.compile("INSTALL_FAILED_([A-Z_]+)").matcher(msg);
+        if (m.find()) return m.group(1);
+        m = java.util.regex.Pattern.compile("DELETE_FAILED_([A-Z_]+)").matcher(msg);
+        if (m.find()) return m.group(1);
+        return "INST-2";
+    }
+
+    /** Cambia solo il testo dei pulsanti dell'app (percentuale), senza ridisegnare la schermata. */
+    private void setBusy(Item it, String text) {
+        it.busy = text;
+        List<TextView> l = buttons.get(it);
+        if (l == null) return;
+        for (TextView b : l) {
+            b.setText(text);
+            b.setTextColor(t.text);
+            b.setBackground(pressable(t.chip, 12));
+        }
     }
 
     // ---------------------------------------------------------------- interfaccia
@@ -279,11 +432,13 @@ public final class StoreActivity extends Activity {
         titles.addView(subtitle);
         head.addView(titles, new FrameLayout.LayoutParams(-2, -2, Gravity.CENTER));
         LinearLayout buttons = new LinearLayout(this);
-        buttons.addView(iconButton(R.drawable.ic_refresh, v -> { if (!installing) load(); }));
+        LinearLayout hb = new LinearLayout(this);
+        refreshBtn = (FrameLayout) iconButton(R.drawable.ic_refresh, v -> { if (!installing) load(); });
+        hb.addView(refreshBtn);
         View gap = new View(this);
-        buttons.addView(gap, new LinearLayout.LayoutParams(dp(12), 1));
-        buttons.addView(iconButton(R.drawable.ic_gear, v -> showSettings()));
-        head.addView(buttons, new FrameLayout.LayoutParams(-2, -2, Gravity.END | Gravity.CENTER_VERTICAL));
+        hb.addView(gap, new LinearLayout.LayoutParams(dp(12), 1));
+        hb.addView(iconButton(R.drawable.ic_gear, v -> showSettings()));
+        head.addView(hb, new FrameLayout.LayoutParams(-2, -2, Gravity.END | Gravity.CENTER_VERTICAL));
         head.setMinimumHeight(dp(52));
         col.addView(head);
 
@@ -300,12 +455,16 @@ public final class StoreActivity extends Activity {
         root.addView(overlay, new FrameLayout.LayoutParams(-1, -1));
 
         setContentView(root);
+        updateRefreshButton();
         showBody();
         if (detail != null) showDetail(detail);
     }
 
     private void showBody() {
         if (body == null) return;
+        if (gridScroll != null && gridScroll.getParent() != null) gridScrollY = gridScroll.getScrollY();
+        gridScroll = null;
+        buttons.clear();
         body.removeAllViews();
         // lo Store compare nella griglia solo quando c'e' una sua versione nuova, ed e' il primo
         List<Item> shown = new ArrayList<>();
@@ -326,26 +485,25 @@ public final class StoreActivity extends Activity {
 
         switch (state) {
             case S_LOADING:
-                body.addView(message(R.drawable.ic_download, L.s(R.string.loading), null, false), center());
+                body.addView(loadingView(), center());
                 return;
             case S_NOT_MG4:
-                body.addView(message(R.drawable.ic_alert, L.s(R.string.not_mg4), L.s(R.string.not_mg4_sub), false), center());
+                body.addView(message(R.drawable.ic_alert, L.s(R.string.not_mg4), L.s(R.string.not_mg4_sub), false, null), center());
                 return;
             case S_BLOCKED:
-                body.addView(message(R.drawable.ic_alert, L.s(R.string.blocked), null, true), center());
+                body.addView(message(R.drawable.ic_alert, L.s(R.string.blocked), null, true, lastError), center());
                 return;
             case S_OFFLINE:
-                body.addView(message(R.drawable.ic_wifi_off, L.s(R.string.offline), L.s(R.string.offline_sub), true), center());
+                body.addView(message(R.drawable.ic_wifi_off, L.s(R.string.offline), L.s(R.string.offline_sub), true, lastError), center());
                 return;
             case S_ERROR:
-                body.addView(message(R.drawable.ic_alert, L.s(R.string.error), L.s(R.string.error_sub), true), center());
+                body.addView(message(R.drawable.ic_alert, L.s(R.string.error), L.s(R.string.error_sub), true, lastError), center());
                 return;
             default:
                 break;
         }
         if (items.isEmpty()) {
-            lastError = "software " + (fw.isEmpty() ? "?" : fw);
-            body.addView(message(R.drawable.ic_info, L.s(R.string.empty), null, true), center());
+            body.addView(message(R.drawable.ic_info, L.s(R.string.empty), null, true, fw.isEmpty() ? null : fw), center());
             return;
         }
 
@@ -367,10 +525,83 @@ public final class StoreActivity extends Activity {
         sv.setPadding(0, 0, 0, dp(20));
         LinearLayout content = new LinearLayout(this);
         content.setOrientation(LinearLayout.VERTICAL);
-        if (updates > 0) content.addView(updateBar(updates));
+        if (cachedAt > 0) content.addView(offlineBar());
+        else if (updates > 0) content.addView(updateBar(updates));
         content.addView(g, new LinearLayout.LayoutParams(-1, -2));
         sv.addView(content, new FrameLayout.LayoutParams(-1, -2));
         body.addView(sv, new FrameLayout.LayoutParams(-1, -1));
+        gridScroll = sv;
+        final int y = gridScrollY;
+        if (y > 0) sv.post(() -> sv.scrollTo(0, y));   // la griglia resta dov'era
+    }
+
+    /** Striscia sopra la griglia quando si mostra l'ultimo catalogo salvato. */
+    private View offlineBar() {
+        LinearLayout bar = new LinearLayout(this);
+        bar.setGravity(Gravity.CENTER_VERTICAL);
+        bar.setPadding(dp(18), dp(12), dp(12), dp(12));
+        bar.setBackground(rounded(t.panel, 18));
+        ImageView iv = new ImageView(this);
+        iv.setImageResource(cachedOffline ? R.drawable.ic_wifi_off : R.drawable.ic_alert);
+        iv.setColorFilter(t.sub, PorterDuff.Mode.SRC_IN);
+        bar.addView(iv, new LinearLayout.LayoutParams(dp(24), dp(24)));
+        LinearLayout tx = new LinearLayout(this);
+        tx.setOrientation(LinearLayout.VERTICAL);
+        tx.setPadding(dp(14), 0, dp(14), 0);
+        String when = cachedAt > 1 ? DateFormat.getTimeInstance(DateFormat.SHORT).format(new Date(cachedAt)) : "";
+        tx.addView(text(L.s(cachedOffline ? R.string.offline : R.string.error), 16, t.text, true));
+        String line = when.isEmpty() ? "" : L.f(R.string.cached_at, when);
+        if (!lastError.isEmpty()) line += (line.isEmpty() ? "" : " · ") + L.f(R.string.error_code, lastError);
+        if (!line.isEmpty()) {
+            TextView l2 = text(line, 13, t.sub, false);
+            l2.setPadding(0, dp(4), 0, 0);
+            tx.addView(l2);
+        }
+        bar.addView(tx, new LinearLayout.LayoutParams(0, -2, 1));
+        TextView b = text(L.s(R.string.retry), 15, t.onText, true);
+        b.setGravity(Gravity.CENTER);
+        b.setPadding(dp(22), 0, dp(22), 0);
+        b.setBackground(pressable(t.text, 12));
+        b.setOnClickListener(v -> load());
+        bar.addView(b, new LinearLayout.LayoutParams(-2, dp(44)));
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
+        lp.setMargins(dp(6), dp(6), dp(6), dp(6));
+        bar.setLayoutParams(lp);
+        return bar;
+    }
+
+    /** Pulsante di aggiornamento in alto: icona, oppure indicatore che gira mentre si ricarica il catalogo. */
+    private void updateRefreshButton() {
+        if (refreshBtn == null) return;
+        refreshBtn.removeAllViews();
+        if (refreshing) {
+            refreshBtn.addView(spinner(), new FrameLayout.LayoutParams(dp(24), dp(24), Gravity.CENTER));
+        } else {
+            ImageView iv = new ImageView(this);
+            iv.setImageResource(R.drawable.ic_refresh);
+            iv.setColorFilter(t.text, PorterDuff.Mode.SRC_IN);
+            refreshBtn.addView(iv, new FrameLayout.LayoutParams(dp(24), dp(24), Gravity.CENTER));
+        }
+    }
+
+    private ProgressBar spinner() {
+        ProgressBar pb = new ProgressBar(this);
+        pb.setIndeterminate(true);
+        pb.setIndeterminateTintList(ColorStateList.valueOf(t.text));
+        return pb;
+    }
+
+    /** Caricamento: indicatore che gira e testo, cosi' si vede che l'app sta lavorando. */
+    private View loadingView() {
+        LinearLayout m = new LinearLayout(this);
+        m.setOrientation(LinearLayout.VERTICAL);
+        m.setGravity(Gravity.CENTER_HORIZONTAL);
+        m.addView(spinner(), new LinearLayout.LayoutParams(dp(48), dp(48)));
+        TextView a = text(L.s(R.string.loading), 19, t.text, true);
+        a.setGravity(Gravity.CENTER);
+        a.setPadding(0, dp(18), 0, 0);
+        m.addView(a);
+        return m;
     }
 
     private View updateBar(int n) {
@@ -486,17 +717,26 @@ public final class StoreActivity extends Activity {
         installing = true;
         it.busy = L.s(R.string.uninstalling);
         refreshViews();
+        final Op op = new Op();
+        final Runnable unlock = () -> installing = false;
         Installer.uninstall(this, it.pkg, (ok, confirm, msg) -> main.post(() -> {
             if (confirm) {
                 toast(L.s(R.string.confirm_needed));
-                return;
+                return;   // il risultato vero arriva dopo la conferma
             }
-            installing = false;
-            it.busy = null;
-            it.refresh(getPackageManager());
-            if (!ok) toast(L.s(R.string.uninstall_failed));
-            refreshViews();
+            endUninstall(op, it, ok, installCode(msg), unlock);
         }));
+        main.postDelayed(() -> endUninstall(op, it, false, "TEMPO", unlock), 90_000);
+    }
+
+    private void endUninstall(Op op, Item it, boolean ok, String code, Runnable then) {
+        if (op.done) return;
+        op.done = true;
+        it.busy = null;
+        it.refresh(getPackageManager());
+        if (!ok) toast(L.s(R.string.uninstall_failed) + " · " + code);
+        refreshViews();
+        then.run();
     }
 
     private TextView actionButton(final Item it) {
@@ -511,12 +751,15 @@ public final class StoreActivity extends Activity {
             filled = false;
         } else {
             label = it.state == Item.UPDATE ? L.s(R.string.update) : L.s(R.string.install);
-            filled = true;
+            filled = cachedAt == 0;   // con il catalogo salvato (senza rete) non si installa: pulsante grigio
         }
         TextView b = text(label, 15, filled ? t.onText : (it.busy != null ? t.text : t.sub), true);
         b.setGravity(Gravity.CENTER);
         b.setBackground(pressable(filled ? t.text : t.chip, 12));
         b.setOnClickListener(v -> act(it));
+        List<TextView> l = buttons.get(it);
+        if (l == null) buttons.put(it, l = new ArrayList<>());
+        l.add(b);
         return b;
     }
 
@@ -653,40 +896,45 @@ public final class StoreActivity extends Activity {
         overlay.setVisibility(View.GONE);
     }
 
-    private View message(int icon, String title, String sub, boolean retry) {
+    /** Messaggio al centro: icona, titolo, spiegazione, codice breve (per le segnalazioni) e Riprova. */
+    private View message(int icon, String title, String sub, boolean retry, String code) {
         LinearLayout m = new LinearLayout(this);
         m.setOrientation(LinearLayout.VERTICAL);
         m.setGravity(Gravity.CENTER_HORIZONTAL);
+        int maxW = (int) (getResources().getDisplayMetrics().widthPixels * 0.6f);
         ImageView iv = new ImageView(this);
         iv.setImageResource(icon);
         iv.setColorFilter(t.sub, PorterDuff.Mode.SRC_IN);
-        m.addView(iv, new LinearLayout.LayoutParams(dp(44), dp(44)));
-        TextView a = text(title, 19, t.text, true);
+        m.addView(iv, new LinearLayout.LayoutParams(dp(48), dp(48)));
+        TextView a = text(title, 21, t.text, true);
         a.setGravity(Gravity.CENTER);
-        a.setPadding(0, dp(14), 0, 0);
+        a.setMaxWidth(maxW);
+        a.setPadding(0, dp(18), 0, 0);
         m.addView(a);
         if (sub != null) {
-            TextView b = text(sub, 15, t.sub, false);
+            TextView b = text(sub, 16, t.sub, false);
             b.setGravity(Gravity.CENTER);
-            b.setPadding(0, dp(4), 0, 0);
+            b.setMaxWidth(maxW);
+            b.setLineSpacing(0, 1.2f);
+            b.setPadding(0, dp(8), 0, 0);
             m.addView(b);
         }
-        if (retry && !lastError.isEmpty()) {
-            TextView d = text(lastError, 12, t.sub, false);
-            d.setGravity(Gravity.CENTER);
-            d.setPadding(dp(40), dp(10), dp(40), 0);
-            d.setMaxLines(3);
-            m.addView(d);
-        }
         if (retry) {
-            TextView r = text(L.s(R.string.retry), 15, t.onText, true);
+            TextView r = text(L.s(R.string.retry), 16, t.onText, true);
             r.setGravity(Gravity.CENTER);
-            r.setPadding(dp(28), 0, dp(28), 0);
+            r.setPadding(dp(36), 0, dp(36), 0);
             r.setBackground(pressable(t.text, 12));
             r.setOnClickListener(v -> load());
-            LinearLayout.LayoutParams rp = new LinearLayout.LayoutParams(-2, dp(46));
-            rp.topMargin = dp(20);
+            LinearLayout.LayoutParams rp = new LinearLayout.LayoutParams(-2, dp(52));
+            rp.topMargin = dp(24);
             m.addView(r, rp);
+        }
+        if (code != null && !code.isEmpty()) {
+            TextView d = text(L.f(R.string.error_code, code), 13, t.sub, false);
+            d.setGravity(Gravity.CENTER);
+            d.setSingleLine(true);
+            d.setPadding(0, dp(14), 0, 0);
+            m.addView(d);
         }
         return m;
     }
