@@ -3,20 +3,20 @@
   "apps": [
     {
       "id": "launcher-swi68",
-      "versione": "1.0.3",
-      "file": "apk/launcher-swi68/MG4Launcher-1.0.3.apk",
-      "dimensione": 793089,
-      "sha256": "98141402ae20ad5e44a6b18c2e00d502aaaeaaf96cb52616d6ed4e557c132b8f",
-      "note": "Tema giorno/notte corretto sulle auto bloccate su notte, FM/DAB più grande accanto ai comandi, ordine dei comandi in alto scambiabile, riquadro accanto al clima con preferiti del telefono o app, elenco stazioni sempre aggiornato, Bluetooth più affidabile all'accensione, Controllo funzioni.",
+      "versione": "1.0.4",
+      "file": "apk/launcher-swi68/MG4Launcher-1.0.4.apk",
+      "dimensione": 1125461,
+      "sha256": "a35fcacb18c958c7e80e7fc345c5cd3788ebba8c759f0b9171d4dd36fb10bf1e",
+      "note": "Disinstallazione sicura (riaccende prima la home MG), tema giorno/notte di tutto il sistema, fari letti dall'auto, nuova home con FM/DAB sotto Radio ed elenco stazioni più in alto, auto disegnata dal modello 3D, animazione di ricarica, Molto grande sistemato, impostazioni che restano al loro posto, disinstallazione delle app con pressione lunga, MG4 Store incluso.",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 40,
+      "codice_versione": 41,
       "nome": "MG4 Launcher",
       "per": [
         "SWI68"
       ],
       "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI68",
       "icona": "icone/launcher-swi68.png",
-      "icona_da": "apk:98141402ae20ad5e44a6b18c2e00d502aaaeaaf96cb52616d6ed4e557c132b8f",
+      "icona_da": "apk:a35fcacb18c958c7e80e7fc345c5cd3788ebba8c759f0b9171d4dd36fb10bf1e",
       "icona_sha": "9e16040f53729158"
     },
     {
@@ -135,13 +135,13 @@
     },
     {
       "id": "store",
-      "versione": "0.3.0",
-      "file": "apk/store/MG4Store-0.3.0.apk",
-      "dimensione": 71234,
-      "sha256": "b6a87f509c5be68bea7aa3aa41e2f932bca3245e18d03a3a5616086143190c57",
-      "note": "Riquadri delle app più grandi, pulsante Disinstalla con conferma, home MG originale riattivata se il launcher viene tolto.",
+      "versione": "0.3.1",
+      "file": "apk/store/MG4Store-0.3.1.apk",
+      "dimensione": 75330,
+      "sha256": "ddc94adee3305223820de144dfaee49e1c19482628bf2b667fc4794766f87ae0",
+      "note": "Catalogo salvato e mostrato anche senza internet, nuovo tentativo automatico al ritorno della rete, schermate di errore con codice breve, griglia che non salta durante i download, riapertura dopo l'aggiornamento.",
       "pacchetto": "com.mg4.store",
-      "codice_versione": 5,
+      "codice_versione": 6,
       "nome": "Store",
       "per": [
         "SWI68",
@@ -151,7 +151,7 @@
       ],
       "repo": "ernestomicco2026-cell/Store",
       "icona": "icone/store.png",
-      "icona_da": "apk:b6a87f509c5be68bea7aa3aa41e2f932bca3245e18d03a3a5616086143190c57",
+      "icona_da": "apk:ddc94adee3305223820de144dfaee49e1c19482628bf2b667fc4794766f87ae0",
       "icona_sha": "b6a78fd71acf0cba"
     }
   ]
