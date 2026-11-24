@@ -3,20 +3,20 @@
   "apps": [
     {
       "id": "launcher-swi68",
-      "versione": "1.0.5",
-      "file": "apk/launcher-swi68/MG4Launcher-1.0.5.apk",
-      "dimensione": 1190375,
-      "sha256": "49040c691814d3d5a36e353a3ebf7de120d21d9cc9b256390744dee55f5fc406",
-      "note": "Animazione di ricarica che parte davvero con il cavo attaccato e lo schermo acceso; impostazioni che restano al loro posto anche dopo una pausa; pacchetto dell'animazione che si aggiorna da solo; Spegni la vettura dalle impostazioni (solo in P); riquadro auto nascondibile; icone delle manovre del navigatore (grazie a sommistica); navigatore in finestra nel pannello mappe (sperimentale).",
+      "versione": "1.0.6",
+      "file": "apk/launcher-swi68/MG4Launcher-1.0.6.apk",
+      "dimensione": 1231335,
+      "sha256": "42fde2803c98e973aaad9bb33a47ff161805ffe7a505f10be6225780ecdcff1b",
+      "note": "Spegni la vettura ora funziona (solo in P, ricontrollata prima del comando); animazione di ricarica: pulsante Simula ricarica, preparazione molto più veloce e log inviato da solo alla prima ricarica; Android Auto e CarPlay tra le sorgenti con titolo e artista; testi del brano e della stazione più grandi; Scorri in su per tornare (facoltativo); navigatore in finestra con l'app scelta; direzione dell'aria, sbrinamento e lunotto nel menu Clima (grazie a sommistica); Android Auto, chiavetta USB e radio di nuovo regolari all'accensione; tema scuro con i fari (a scelta); tendina dall'alto a schermo ",
       "pacchetto": "com.mg4.launcher",
-      "codice_versione": 42,
+      "codice_versione": 43,
       "nome": "MG4 Launcher",
       "per": [
         "SWI68"
       ],
       "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI68",
       "icona": "icone/launcher-swi68.png",
-      "icona_da": "apk:49040c691814d3d5a36e353a3ebf7de120d21d9cc9b256390744dee55f5fc406",
+      "icona_da": "apk:42fde2803c98e973aaad9bb33a47ff161805ffe7a505f10be6225780ecdcff1b",
       "icona_sha": "9e16040f53729158"
     },
     {
