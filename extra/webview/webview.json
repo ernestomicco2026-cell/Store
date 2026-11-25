@@ -1,0 +1,45 @@
+{
+  "_info": "WebView 138 per MG4 Browser: APK diviso in pezzi sotto i 100 MB (limite di GitHub e del Worker). Non va nel catalogo dello Store.",
+  "pacchetto": "com.android.webview",
+  "versione": "138.0.7204.63",
+  "codice_versione": 720406301,
+  "dimensione": 243566892,
+  "sha256": "33a4fa89e303de59c6f03c9146c52afc2ed38c1994085e42838fe046f21eec7f",
+  "parti": [
+    {
+      "file": "extra/webview/AndroidSystemWebView-138.0.7204.63.part1.apk",
+      "dimensione": 40000000,
+      "sha256": "830e4956b51035d26a27266976feae79ad680cee9d2000c067ffb246f5fb79ba"
+    },
+    {
+      "file": "extra/webview/AndroidSystemWebView-138.0.7204.63.part2.apk",
+      "dimensione": 40000000,
+      "sha256": "8400db3edfe15975eb19b45a5cce141c4a27e55140c9f67e793bf228abcd2200"
+    },
+    {
+      "file": "extra/webview/AndroidSystemWebView-138.0.7204.63.part3.apk",
+      "dimensione": 40000000,
+      "sha256": "5a055927dc1040736f7f81c8cdaac799790fd7d17068456410c85e37d81ebfde"
+    },
+    {
+      "file": "extra/webview/AndroidSystemWebView-138.0.7204.63.part4.apk",
+      "dimensione": 40000000,
+      "sha256": "66be8cc6a61f0d9abe33184b3eebb4e7ce98b383017f24dda9764ccf23c6ad32"
+    },
+    {
+      "file": "extra/webview/AndroidSystemWebView-138.0.7204.63.part5.apk",
+      "dimensione": 40000000,
+      "sha256": "c6212e5f26eb265f89686f2b518ebfa82c53b112b65510103cc454d892901c86"
+    },
+    {
+      "file": "extra/webview/AndroidSystemWebView-138.0.7204.63.part6.apk",
+      "dimensione": 40000000,
+      "sha256": "6735cc262d1bd84ddde04d20784f849a3d466ae35e3caeb4a071835a4a39962c"
+    },
+    {
+      "file": "extra/webview/AndroidSystemWebView-138.0.7204.63.part7.apk",
+      "dimensione": 3566892,
+      "sha256": "2ab50ce04ea6f54ac386dfdc3f928e463f93fb364a51afaab5848e19d701a022"
+    }
+  ]
+}
