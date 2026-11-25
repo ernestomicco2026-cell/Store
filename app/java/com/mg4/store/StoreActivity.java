@@ -111,9 +111,13 @@ public final class StoreActivity extends Activity {
             netCallback = new android.net.ConnectivityManager.NetworkCallback() {
                 @Override
                 public void onAvailable(android.net.Network n) {
-                    main.postDelayed(() -> {
-                        boolean stale = state == S_OFFLINE || state == S_ERROR || cachedAt > 0;
-                        if (stale && !installing) load();
+                    // Runnable esplicito: il D8 di build-tools 34 va in errore con una lambda dentro questa classe anonima
+                    main.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            boolean stale = state == S_OFFLINE || state == S_ERROR || cachedAt > 0;
+                            if (stale && !installing) load();
+                        }
                     }, 2000);
                 }
             };
@@ -641,12 +645,9 @@ public final class StoreActivity extends Activity {
         c.setOnClickListener(v -> showDetail(it));
 
         c.addView(iconBox(it, 80), new LinearLayout.LayoutParams(dp(80), dp(80)));
-        TextView name = text(it.name, 20, t.text, true);
-        name.setSingleLine(true);
-        name.setEllipsize(TextUtils.TruncateAt.END);
         LinearLayout.LayoutParams np = new LinearLayout.LayoutParams(-1, -2);
         np.topMargin = dp(16);
-        c.addView(name, np);
+        c.addView(nameRow(it, 20), np);
         TextView ver = text(it.version, 15, t.sub, false);
         ver.setPadding(0, dp(4), 0, 0);
         ver.setSingleLine(true);
@@ -774,7 +775,7 @@ public final class StoreActivity extends Activity {
         LinearLayout tt = new LinearLayout(this);
         tt.setOrientation(LinearLayout.VERTICAL);
         tt.setPadding(dp(16), 0, 0, 0);
-        tt.addView(text(it.name, 21, t.text, true));
+        tt.addView(nameRow(it, 21));
         String line = L.f(R.string.version, it.version);
         if (it.size > 0) line += " · " + L.f(R.string.size_mb, String.format(Locale.ROOT, "%.1f", it.size / 1048576.0));
         tt.addView(text(line, 14, t.sub, false));
@@ -974,6 +975,26 @@ public final class StoreActivity extends Activity {
         f.addView(iv, new FrameLayout.LayoutParams(dp(24), dp(24), Gravity.CENTER));
         f.setLayoutParams(new LinearLayout.LayoutParams(dp(52), dp(52)));
         return f;
+    }
+
+    /** Nome dell'app su una riga e, per le app in prova, l'etichetta gialla BETA subito dopo. */
+    private View nameRow(Item it, float sp) {
+        TextView name = text(it.name, sp, t.text, true);
+        name.setSingleLine(true);
+        name.setEllipsize(TextUtils.TruncateAt.END);
+        if (!it.beta) return name;
+        LinearLayout row = new LinearLayout(this);
+        row.setGravity(Gravity.CENTER_VERTICAL);
+        name.setMaxWidth(dp(240));   // nomi lunghi: puntini, l'etichetta resta sempre visibile
+        row.addView(name, new LinearLayout.LayoutParams(-2, -2));
+        TextView b = text("BETA", sp * 0.62f, 0xFF0B0C0F, true);
+        b.setBackground(rounded(0xFFF5B335, 6));
+        b.setPadding(dp(8), dp(1), dp(8), dp(1));
+        b.setSingleLine(true);
+        LinearLayout.LayoutParams bp = new LinearLayout.LayoutParams(-2, -2);
+        bp.leftMargin = dp(10);
+        row.addView(b, bp);
+        return row;
     }
 
     private TextView text(String s, float sp, int color, boolean bold) {

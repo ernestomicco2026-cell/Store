@@ -188,6 +188,10 @@ def main():
             if "pacchetto" not in voce:
                 voce.update(pacchetto(file_abs))
             voce.update({"nome": a["nome"], "per": a.get("per", []), "repo": a["repo"]})
+            if a.get("beta"):
+                voce["beta"] = True      # etichetta BETA nello Store
+            else:
+                voce.pop("beta", None)
             if a.get("nascosta"):
                 # resta nello Store (APK e icona) ma non compare sulle auto
                 print(f"NASCOSTA {a['id']}")

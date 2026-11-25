@@ -19,6 +19,8 @@ public final class Item {
     /** Icona scaricata, oppure null (si usa il simbolo predefinito). */
     public android.graphics.Bitmap bmp;
     public final long size, code;
+    /** App in prova: nella griglia e nel dettaglio compare l'etichetta BETA accanto al nome. */
+    public final boolean beta;
     public final int iconRes;
 
     public String installedVersion;
@@ -38,6 +40,7 @@ public final class Item {
         iconRes = icon(id);
         icon = o.optString("icona");
         iconSha = o.optString("icona_sha");
+        beta = o.optBoolean("beta", false);
     }
 
     /** Elenco delle app adatte a questa auto (software e requisiti), con lo stato di installazione. */

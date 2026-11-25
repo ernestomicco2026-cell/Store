@@ -1,5 +1,5 @@
 {
-  "version": "0.3.1",
-  "apk": "releases/MG4Store-0.3.1.apk",
-  "notes": "Catalogo salvato e mostrato anche senza internet, nuovo tentativo automatico al ritorno della rete, schermate di errore con codice breve, griglia che non salta durante i download, riapertura dopo l'aggiornamento."
+  "version": "0.3.2",
+  "apk": "releases/MG4Store-0.3.2.apk",
+  "notes": "Etichetta BETA gialla accanto al nome delle app in prova."
 }
