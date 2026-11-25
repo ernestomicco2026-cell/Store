@@ -134,14 +134,36 @@
       "icona_sha": "c8b10a1dc4460045"
     },
     {
+      "id": "games",
+      "versione": "0.4.14",
+      "file": "apk/games/MG4Games-0.4.14.apk",
+      "dimensione": 3125402,
+      "sha256": "d6afa2c2ca6f2269d6e7faadb65ef73ee4162f185e5d2badbe0a10f8e9aef83a",
+      "note": "Versione di prova: la funzione Collega pad Bluetooth può far riavviare l'infotainment. Log con i crash di Android e il motivo dell'ultimo riavvio.",
+      "pacchetto": "com.mg4.games",
+      "codice_versione": 19,
+      "nome": "MG4 Games",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ],
+      "repo": "",
+      "beta": true,
+      "icona": "icone/games.png",
+      "icona_da": "apk:d6afa2c2ca6f2269d6e7faadb65ef73ee4162f185e5d2badbe0a10f8e9aef83a",
+      "icona_sha": "029efb7ce7b715ca"
+    },
+    {
       "id": "store",
-      "versione": "0.3.1",
-      "file": "apk/store/MG4Store-0.3.1.apk",
+      "versione": "0.3.2",
+      "file": "apk/store/MG4Store-0.3.2.apk",
       "dimensione": 75330,
-      "sha256": "ddc94adee3305223820de144dfaee49e1c19482628bf2b667fc4794766f87ae0",
-      "note": "Catalogo salvato e mostrato anche senza internet, nuovo tentativo automatico al ritorno della rete, schermate di errore con codice breve, griglia che non salta durante i download, riapertura dopo l'aggiornamento.",
+      "sha256": "ebdd747e816321866263ca0dca0d06334423469f709446f195b13296d95fc990",
+      "note": "Etichetta BETA gialla accanto al nome delle app in prova.",
       "pacchetto": "com.mg4.store",
-      "codice_versione": 6,
+      "codice_versione": 7,
       "nome": "Store",
       "per": [
         "SWI68",
@@ -151,7 +173,7 @@
       ],
       "repo": "ernestomicco2026-cell/Store",
       "icona": "icone/store.png",
-      "icona_da": "apk:ddc94adee3305223820de144dfaee49e1c19482628bf2b667fc4794766f87ae0",
+      "icona_da": "apk:ebdd747e816321866263ca0dca0d06334423469f709446f195b13296d95fc990",
       "icona_sha": "b6a78fd71acf0cba"
     }
   ]
