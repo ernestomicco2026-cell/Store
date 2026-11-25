@@ -135,13 +135,13 @@
     },
     {
       "id": "games",
-      "versione": "0.4.14",
-      "file": "apk/games/MG4Games-0.4.14.apk",
-      "dimensione": 3125402,
-      "sha256": "d6afa2c2ca6f2269d6e7faadb65ef73ee4162f185e5d2badbe0a10f8e9aef83a",
-      "note": "Versione di prova: la funzione Collega pad Bluetooth può far riavviare l'infotainment. Log con i crash di Android e il motivo dell'ultimo riavvio.",
+      "versione": "0.4.15",
+      "file": "apk/games/MG4Games-0.4.15.apk",
+      "dimensione": 3128519,
+      "sha256": "8b7a8f7c37880ac843d0b4236f0cea99f1177ab114f3356c71de030fb06d93a8",
+      "note": "Versione di prova: la funzione Collega pad Bluetooth può far riavviare l'infotainment. Dopo un riavvio durante la prova, il log parte da solo.",
       "pacchetto": "com.mg4.games",
-      "codice_versione": 19,
+      "codice_versione": 20,
       "nome": "MG4 Games",
       "per": [
         "SWI68",
@@ -152,7 +152,7 @@
       "repo": "",
       "beta": true,
       "icona": "icone/games.png",
-      "icona_da": "apk:d6afa2c2ca6f2269d6e7faadb65ef73ee4162f185e5d2badbe0a10f8e9aef83a",
+      "icona_da": "apk:8b7a8f7c37880ac843d0b4236f0cea99f1177ab114f3356c71de030fb06d93a8",
       "icona_sha": "029efb7ce7b715ca"
     },
     {
