@@ -12,8 +12,8 @@
 
     { "id": "taskmanager", "nome": "MG4 Task Manager", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
-    { "id": "games", "nascosta": true, "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.13", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
-      "note": "Tutto schermo in ogni schermata, anche nei menu e nelle finestre di conferma." },
+    { "id": "games", "nascosta": true, "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.14", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
+      "note": "Log con i crash di Android e il motivo dell'ultimo riavvio (diagnosi pad Bluetooth)." },
 
     { "id": "radiofix", "nascosta": true, "nome": "MG4 Radio Fix (prova v1.6)", "repo": "", "tipo": "locale", "versione": "1.0.0_EH32_SOP_2502201114-radiofix7", "per": ["SWI68"],
       "richiede": { "pacchetto": "com.saicmotor.service.radio", "versione_inizia": "1.0.0_EH32_SOP_2502201114" },
