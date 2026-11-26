@@ -12,8 +12,8 @@
 
     { "id": "taskmanager", "nome": "MG4 Task Manager", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
-    { "id": "games", "beta": true, "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.4.16", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
-      "note": "Versione di prova: pad Bluetooth collegato direttamente dall'app (modalità Switch). Al primo avvio spegne il profilo pad di sistema e riavvia il Bluetooth una volta." },
+    { "id": "games", "beta": true, "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.5.0", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
+      "note": "Quattro giochi nuovi nel catalogo: Kart elettrico e Arena laser in 3D (serve una WebView aggiornata), Quiz AI e Avventura illustrata con l'intelligenza artificiale (servono internet). Pad Bluetooth collegato direttamente dall'app (sperimentale)." },
 
     { "id": "browser", "beta": true, "nome": "MG4 Browser", "repo": "", "tipo": "locale", "versione": "0.1.0", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
       "note": "Versione di prova. Al primo avvio aggiorna il motore web dell'auto (WebView 66 -> 138, circa 240 MB, una volta sola): meglio ad auto ferma e con una buona connessione. Dopo l'aggiornamento conviene riavviare l'infotainment." },
