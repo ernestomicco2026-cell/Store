@@ -14,6 +14,7 @@
 
 <p align="center">
 🇮🇹 <a href="#italiano">Italiano</a> · 🇬🇧 <a href="#english">English</a> ·
+<a href="#quale-versione-installare--which-version-should-i-install">Quale versione? / Which version?</a> ·
 <a href="#app-nello-store--apps-in-the-store">App nello store / Apps in the store</a> ·
 <a href="#versioni">Novità</a> / <a href="#changelog">What's new</a>
 </p>
@@ -40,6 +41,18 @@
 
 ---
 
+## Quale versione installare? / Which version should I install?
+
+C'è **un solo APK** per tutti i software dell'infotainment MG4: **SWI68, SWI69, SWI132 e SWI133**. Lo store riconosce
+da solo il software dell'auto e mostra solo le app adatte. Se usi **MG4 Launcher**, lo store c'è già: il launcher lo
+installa da solo.
+
+There is **one single APK** for every MG4 infotainment software: **SWI68, SWI69, SWI132 and SWI133**. The store
+detects the car's software by itself and shows only the apps that fit. If you use **MG4 Launcher**, the store is
+already there: the launcher installs it by itself.
+
+---
+
 ## App nello store / Apps in the store
 
 | App | Cosa fa / What it does | Software | Repository |
@@ -48,6 +61,13 @@
 | **MG4 Clima** | Schermata del clima in stile Tesla · Tesla-style climate screen | SWI68, SWI69, SWI132, SWI133 | [HVAC-Clima-MG4](https://github.com/ernestomicco2026-cell/HVAC-Clima-MG4) |
 | **MG4 Voice** | Assistente vocale offline in italiano (beta) · offline Italian voice assistant (beta) | SWI68 | [Mg4-Voice](https://github.com/ernestomicco2026-cell/Mg4-Voice) |
 | **MG4 Task Manager** | Elenco delle app aperte e chiusura con un tocco · open apps list and one-tap close | SWI68, SWI69, SWI132, SWI133 | [mg4-taskmanager](https://github.com/ernestomicco2026-cell/mg4-taskmanager) |
+| **MG4 Browser** (beta) | Browser con il motore web aggiornato (WebView 138) · browser with an up-to-date web engine (WebView 138) | SWI68, SWI69, SWI132, SWI133 | in arrivo · coming soon |
+| **MG4 Games** (beta) | Giochi con il pad, ad auto ferma · games with a gamepad, while parked | SWI68, SWI69, SWI132, SWI133 | in arrivo · coming soon |
+
+**MG4 Radio Fix** non è nello store: è una correzione del servizio radio di sistema e va scelta in base alla versione
+dell'auto, quindi si installa a mano dal suo [repository](https://github.com/ernestomicco2026-cell/MG4-Radio-Fix-SAIC1.0) ·
+**MG4 Radio Fix** is not in the store: it patches the system radio service and must match the car's version, so it is
+installed by hand from its [repository](https://github.com/ernestomicco2026-cell/MG4-Radio-Fix-SAIC1.0).
 
 Lo store prende sempre l'ultima versione pubblicata nel repository di ogni app, di solito entro un'ora dall'uscita.
 The store always offers the latest version published in each app's repository, usually within an hour of release.
@@ -59,7 +79,7 @@ The store always offers the latest version published in each app's repository, u
 MG4 Store è l'app che installa e aggiorna le app MG4 direttamente sull'infotainment, senza chiavetta USB e senza
 computer. Si installa una volta sola, come una normale app; da lì in poi le altre app arrivano con un tocco.
 
-**Indice:** [Cosa fa](#cosa-fa) · [Come funziona l'accesso](#come-funziona-laccesso) · [Installazione](#installazione) · [Aggiornamenti](#aggiornamenti) · [Aggiungere un'app](#aggiungere-unapp-allo-store) · [Dati inviati](#dati-inviati) · [Segnalare un problema](#segnalare-un-problema) · [Sostieni il progetto](#sostieni-il-progetto) · [Versioni](#versioni)
+**Indice:** [Cosa fa](#cosa-fa) · [Come funziona l'accesso](#come-funziona-laccesso) · [Installazione](#installazione) · [Aggiornamenti](#aggiornamenti) · [Togliere lo store](#togliere-lo-store) · [Comandi utili](#comandi-utili) · [Aggiungere un'app](#aggiungere-unapp-allo-store) · [Dati inviati](#dati-inviati) · [Segnalare un problema](#segnalare-un-problema) · [Sostieni il progetto](#sostieni-il-progetto) · [Versioni](#versioni) · [Cosa arriva](#cosa-arriva) · [Compilare](#compilare)
 
 ### Cosa fa
 
@@ -88,7 +108,8 @@ emulatori lo store mostra *Questo dispositivo non è un'infotainment MG4* e non 
 
 ### Installazione
 
-Scarica l'APK dalla cartella [`releases/`](releases/). Si installa come una normale app, in due modi.
+Se usi **MG4 Launcher** non devi fare niente: il launcher installa lo store da solo. Altrimenti scarica l'APK dalla
+cartella [`releases/`](releases/). Si installa come una normale app, in due modi.
 
 #### Metodo 1: da chiavetta USB (senza computer)
 
@@ -112,6 +133,20 @@ adb install -r -f MG4Store-0.3.2.apk
 
 Lo store si aggiorna da solo, come le altre app: quando esce una sua versione nuova compare per primo nella griglia
 con il tasto **Aggiorna**. Con *Aggiorna tutto* viene installato per ultimo, perché alla fine si riavvia.
+
+### Togliere lo store
+
+Lo store si disinstalla come una normale app, dalle impostazioni di Android. Le app installate con lo store restano
+sull'auto. Se usi MG4 Launcher, il launcher non lo rimette a forza: lo reinstalli quando vuoi da Impostazioni →
+**Installa MG4 Store**. Da computer: `adb uninstall com.mg4.store`.
+
+### Comandi utili
+
+```bash
+# riaprire lo store senza spegnere l'auto
+adb shell am force-stop com.mg4.store
+adb shell am start -n com.mg4.store/.StoreActivity
+```
 
 ### Aggiungere un'app allo store
 
@@ -191,7 +226,15 @@ Anche solo **2 €** sono un aiuto prezioso per continuare a sviluppare e provar
 - Installazione con un tocco, senza chiavetta USB.
 - 8 lingue, tema giorno e notte.
 
-#### Compilare
+### Cosa arriva
+
+- **Passo 1:** MG4 Browser e MG4 Games prendono gli aggiornamenti direttamente dai loro repository, come le altre app.
+- **Passo 2:** nuove app MG4 appena sono pronte.
+- **Più avanti:** app di altri sviluppatori della community, con il consenso dei loro autori.
+
+Molte idee arrivano dalle segnalazioni (issue) degli utenti: grazie!
+
+### Compilare
 
 Il progetto si compila senza Gradle, con lo script `build.sh` (aapt2, javac, D8 e firma):
 
@@ -210,7 +253,7 @@ ma il catalogo non risponde.
 MG4 Store is the app that installs and updates MG4 apps directly on the infotainment, with no USB stick and no
 computer. You install it once, like a normal app; from then on the other apps arrive with one tap.
 
-**Contents:** [Features](#features) · [How access works](#how-access-works) · [Installation](#installation) · [Updates](#updates) · [Adding an app](#adding-an-app-to-the-store) · [Data sent](#data-sent) · [Reporting a problem](#reporting-a-problem) · [Support the project](#support-the-project) · [Changelog](#changelog)
+**Contents:** [Features](#features) · [How access works](#how-access-works) · [Installation](#installation) · [Updates](#updates) · [Removing the store](#removing-the-store) · [Useful commands](#useful-commands) · [Adding an app](#adding-an-app-to-the-store) · [Data sent](#data-sent) · [Reporting a problem](#reporting-a-problem) · [Support the project](#support-the-project) · [Changelog](#changelog) · [What's coming](#whats-coming) · [Building](#building)
 
 ### Features
 
@@ -239,7 +282,8 @@ the store shows *This device isn't an MG4 infotainment* and downloads nothing.
 
 ### Installation
 
-Download the APK from the [`releases/`](releases/) folder. It installs like a normal app, in two ways.
+If you use **MG4 Launcher** there is nothing to do: the launcher installs the store by itself. Otherwise download
+the APK from the [`releases/`](releases/) folder. It installs like a normal app, in two ways.
 
 #### Method 1: from a USB stick (no computer)
 
@@ -263,6 +307,20 @@ adb install -r -f MG4Store-0.3.2.apk
 
 The store updates itself like the other apps: when a new version is out it appears first in the grid with the
 **Update** button. With *Update all* it is installed last, because it restarts at the end.
+
+### Removing the store
+
+The store uninstalls like a normal app, from the Android settings. Apps installed through the store stay in the car.
+If you use MG4 Launcher, the launcher won't force it back: reinstall it whenever you like from Settings →
+**Install MG4 Store**. From a computer: `adb uninstall com.mg4.store`.
+
+### Useful commands
+
+```bash
+# reopen the store without switching the car off
+adb shell am force-stop com.mg4.store
+adb shell am start -n com.mg4.store/.StoreActivity
+```
 
 ### Adding an app to the store
 
@@ -343,7 +401,15 @@ Even just **€2** is a precious help to keep developing and testing new version
 - One-tap installation, no USB stick.
 - 8 languages, day and night theme.
 
-#### Building
+### What's coming
+
+- **Step 1:** MG4 Browser and MG4 Games take their updates straight from their repositories, like the other apps.
+- **Step 2:** new MG4 apps as soon as they are ready.
+- **Later:** apps from other community developers, with their authors' consent.
+
+Many ideas come from users' reports (issues): thank you!
+
+### Building
 
 The project builds without Gradle, with the `build.sh` script (aapt2, javac, D8 and signing):
 
