@@ -114,13 +114,13 @@
     },
     {
       "id": "taskmanager",
-      "versione": "1.3",
+      "versione": "1.4",
       "file": "apk/taskmanager/MG4-TaskManager-system.apk",
-      "dimensione": 75625,
-      "sha256": "4d62d7e84d8d8ac143087cf027d9cc12b007a084fc4e8af6255cf4f11f0a6068",
-      "note": "<!-- lang:it --> ### 🇮🇹 Italiano - **Disinstalla le app** che hai installato tu: pulsante 🗑 sulla scheda dell'app oppure **Impostazioni → Disinstalla app** (elenco di tutte le app installate da te, anche chiuse) - Chiede sempre conferma; le app di sistema non si possono disinstallare - Edizione di sistema o con ADB: rimozione immediata. Edizione normale senza ADB: conferma nella schermata di Android --- <!-- lang:en --> ### 🇬🇧 English - **Uninstall the apps** you installed: 🗑 button on the app card or **Settings → Uninstall apps** (list of all the apps you installed, closed ones included) - Al",
+      "dimensione": 78557,
+      "sha256": "ae8570e3ada8f33db946f8893f878353e5bcad3ed3e1614368bfcd2b407b9329",
+      "note": "<!-- lang:it --> ### 🇮🇹 Italiano - **Edizione di sistema:** attiva da sola l'accessibilità, l'accesso ai dati di utilizzo e l'installazione degli aggiornamenti, senza menu e senza ADB. Funziona anche sulle SWI68 R67, R71 e R73, dove i menu di Android sono bloccati - Gli altri servizi di accessibilità già attivi (launcher, altre app) restano come sono - **Impostazioni → Modalità:** mostra l'edizione installata e se l'accessibilità è attiva, con il pulsante **Attiva** - **Edizione normale:** se il menu Accessibilità non è raggiungibile e ADB non c'è, consiglia l'edizione di sistema --- <!-- lang",
       "pacchetto": "it.mg4.taskmanager",
-      "codice_versione": 10300,
+      "codice_versione": 10400,
       "nome": "MG4 Task Manager",
       "per": [
         "SWI68",
@@ -130,18 +130,18 @@
       ],
       "repo": "ernestomicco2026-cell/mg4-taskmanager",
       "icona": "icone/taskmanager.png",
-      "icona_da": "apk:4d62d7e84d8d8ac143087cf027d9cc12b007a084fc4e8af6255cf4f11f0a6068",
+      "icona_da": "apk:ae8570e3ada8f33db946f8893f878353e5bcad3ed3e1614368bfcd2b407b9329",
       "icona_sha": "c8b10a1dc4460045"
     },
     {
       "id": "games",
-      "versione": "0.4.16",
-      "file": "apk/games/MG4Games-0.4.16.apk",
-      "dimensione": 3143109,
-      "sha256": "4ee8eb54a271c424373b7063caf61fd186d87ab9dd26391b9948efd13839a938",
-      "note": "Versione di prova: pad Bluetooth collegato direttamente dall'app (modalità Switch). Al primo avvio spegne il profilo pad di sistema e riavvia il Bluetooth una volta.",
+      "versione": "0.5.0",
+      "file": "apk/games/MG4Games-0.5.0.apk",
+      "dimensione": 3146041,
+      "sha256": "0227de93eea6d8f9cc40184f046c58962c1be5de41c12c8eac7d8ee0c65c3792",
+      "note": "Quattro giochi nuovi nel catalogo: Kart elettrico e Arena laser in 3D (serve una WebView aggiornata), Quiz AI e Avventura illustrata con l'intelligenza artificiale (servono internet). Pad Bluetooth collegato direttamente dall'app (sperimentale).",
       "pacchetto": "com.mg4.games",
-      "codice_versione": 21,
+      "codice_versione": 22,
       "nome": "MG4 Games",
       "per": [
         "SWI68",
@@ -152,7 +152,7 @@
       "repo": "",
       "beta": true,
       "icona": "icone/games.png",
-      "icona_da": "apk:4ee8eb54a271c424373b7063caf61fd186d87ab9dd26391b9948efd13839a938",
+      "icona_da": "apk:0227de93eea6d8f9cc40184f046c58962c1be5de41c12c8eac7d8ee0c65c3792",
       "icona_sha": "029efb7ce7b715ca"
     },
     {
