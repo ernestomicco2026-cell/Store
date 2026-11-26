@@ -96,20 +96,20 @@
     },
     {
       "id": "voice",
-      "versione": "1.0.0-beta.11",
-      "file": "apk/voice/MG4Voice-1.0.0-beta.11.apk",
+      "versione": "1.0.0-beta.12",
+      "file": "apk/voice/MG4Voice-1.0.0-beta.12.apk",
       "dimensione": 13702023,
-      "sha256": "5555c34ca211dfa9e14fb92f1b5be001bbe7c32ee7631e503354838298e61bc1",
+      "sha256": "434cf1dec18e070dfddfe71bd3599af4147c5e3a94fd0af9788384b72c0b7764",
       "note": "",
       "pacchetto": "com.mg4.voice",
-      "codice_versione": 111,
+      "codice_versione": 112,
       "nome": "MG4 Voice",
       "per": [
         "SWI68"
       ],
       "repo": "ernestomicco2026-cell/Mg4-Voice",
       "icona": "icone/voice.png",
-      "icona_da": "apk:5555c34ca211dfa9e14fb92f1b5be001bbe7c32ee7631e503354838298e61bc1",
+      "icona_da": "apk:434cf1dec18e070dfddfe71bd3599af4147c5e3a94fd0af9788384b72c0b7764",
       "icona_sha": "12393247daa2de1f"
     },
     {
@@ -135,13 +135,13 @@
     },
     {
       "id": "games",
-      "versione": "0.4.15",
-      "file": "apk/games/MG4Games-0.4.15.apk",
-      "dimensione": 3128519,
-      "sha256": "8b7a8f7c37880ac843d0b4236f0cea99f1177ab114f3356c71de030fb06d93a8",
-      "note": "Versione di prova: la funzione Collega pad Bluetooth può far riavviare l'infotainment. Dopo un riavvio durante la prova, il log parte da solo.",
+      "versione": "0.4.16",
+      "file": "apk/games/MG4Games-0.4.16.apk",
+      "dimensione": 3143109,
+      "sha256": "4ee8eb54a271c424373b7063caf61fd186d87ab9dd26391b9948efd13839a938",
+      "note": "Versione di prova: pad Bluetooth collegato direttamente dall'app (modalità Switch). Al primo avvio spegne il profilo pad di sistema e riavvia il Bluetooth una volta.",
       "pacchetto": "com.mg4.games",
-      "codice_versione": 20,
+      "codice_versione": 21,
       "nome": "MG4 Games",
       "per": [
         "SWI68",
@@ -152,7 +152,7 @@
       "repo": "",
       "beta": true,
       "icona": "icone/games.png",
-      "icona_da": "apk:8b7a8f7c37880ac843d0b4236f0cea99f1177ab114f3356c71de030fb06d93a8",
+      "icona_da": "apk:4ee8eb54a271c424373b7063caf61fd186d87ab9dd26391b9948efd13839a938",
       "icona_sha": "029efb7ce7b715ca"
     },
     {
