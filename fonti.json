@@ -8,7 +8,7 @@
 
     { "id": "clima",           "nome": "MG4 Clima",               "repo": "ernestomicco2026-cell/HVAC-Clima-MG4", "tipo": "json", "chiave": "MG4Clima", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
-    { "id": "voice",           "nome": "MG4 Voice",               "repo": "ernestomicco2026-cell/Mg4-Voice", "tipo": "cartella", "file": "^MG4Voice-(.+)\\.apk$", "per": ["SWI68"] },
+    { "id": "voice", "beta": true,           "nome": "MG4 Voice",               "repo": "ernestomicco2026-cell/Mg4-Voice", "tipo": "cartella", "file": "^MG4Voice-(.+)\\.apk$", "per": ["SWI68"] },
 
     { "id": "taskmanager", "nome": "MG4 Task Manager", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
 
