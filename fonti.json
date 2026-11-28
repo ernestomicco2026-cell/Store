@@ -1,27 +1,136 @@
 {
   "_info": "Elenco delle app dello store. Per aggiungere un'app copia un blocco e cambia i valori. tipo: json = releases/latest.json del repo; cartella = APK piu' recente nella cartella releases/; release = file allegato alle Release di GitHub; locale = APK caricato a mano nella cartella apk/<id>/ dello Store. per = versioni del software su cui funziona. nascosta = true: l'app resta nello Store ma non compare sulle auto (basta togliere la voce per rimostrarla). richiede = (facoltativo) l'app compare solo se sull'auto c'e' quel pacchetto con quella versione.",
   "app": [
-    { "id": "launcher-swi68",  "nome": "MG4 Launcher",            "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI68",  "tipo": "json", "per": ["SWI68"] },
-    { "id": "launcher-swi69",  "nome": "MG4 Launcher",            "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI69",  "tipo": "json", "per": ["SWI69"] },
-    { "id": "launcher-swi132", "nome": "MG4 Launcher",            "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI132", "tipo": "json", "per": ["SWI132"] },
-    { "id": "launcher-swi133", "nome": "MG4 Launcher",            "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI133", "tipo": "json", "per": ["SWI133"] },
-
-    { "id": "clima",           "nome": "MG4 Clima",               "repo": "ernestomicco2026-cell/HVAC-Clima-MG4", "tipo": "json", "chiave": "MG4Clima", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
-
-    { "id": "voice", "beta": true,           "nome": "MG4 Voice",               "repo": "ernestomicco2026-cell/Mg4-Voice", "tipo": "cartella", "file": "^MG4Voice-(.+)\\.apk$", "per": ["SWI68"] },
-
-    { "id": "taskmanager", "nome": "MG4 Task Manager", "repo": "ernestomicco2026-cell/mg4-taskmanager", "tipo": "release", "file": "^MG4-TaskManager-system\\.apk$", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] },
-
-    { "id": "games", "beta": true, "nome": "MG4 Games", "repo": "", "tipo": "locale", "versione": "0.5.0", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
-      "note": "Quattro giochi nuovi nel catalogo: Kart elettrico e Arena laser in 3D (serve una WebView aggiornata), Quiz AI e Avventura illustrata con l'intelligenza artificiale (servono internet). Pad Bluetooth collegato direttamente dall'app (sperimentale)." },
-
-    { "id": "browser", "beta": true, "nome": "MG4 Browser", "repo": "", "tipo": "locale", "versione": "0.1.0", "per": ["SWI68", "SWI69", "SWI132", "SWI133"],
-      "note": "Versione di prova. Al primo avvio aggiorna il motore web dell'auto (WebView 66 -> 138, circa 240 MB, una volta sola): meglio ad auto ferma e con una buona connessione. Dopo l'aggiornamento conviene riavviare l'infotainment." },
-
-    { "id": "radiofix", "nascosta": true, "nome": "MG4 Radio Fix (prova v1.6)", "repo": "", "tipo": "locale", "versione": "1.0.0_EH32_SOP_2502201114-radiofix7", "per": ["SWI68"],
-      "richiede": { "pacchetto": "com.saicmotor.service.radio", "versione_inizia": "1.0.0_EH32_SOP_2502201114" },
-      "note": "PROVA v1.6, solo SWI68 R69/R73: AF in FM. Dopo l'installazione riavvia l'unita' (Home premuto per circa 20 s)." },
-
-    { "id": "store", "nome": "Store", "repo": "ernestomicco2026-cell/Store", "tipo": "json", "per": ["SWI68", "SWI69", "SWI132", "SWI133"] }
+    {
+      "id": "launcher-swi68",
+      "nome": "MG4 Launcher",
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI68",
+      "tipo": "json",
+      "per": [
+        "SWI68"
+      ]
+    },
+    {
+      "id": "launcher-swi69",
+      "nome": "MG4 Launcher",
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI69",
+      "tipo": "json",
+      "per": [
+        "SWI69"
+      ]
+    },
+    {
+      "id": "launcher-swi132",
+      "nome": "MG4 Launcher",
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI132",
+      "tipo": "json",
+      "per": [
+        "SWI132"
+      ]
+    },
+    {
+      "id": "launcher-swi133",
+      "nome": "MG4 Launcher",
+      "repo": "ernestomicco2026-cell/Mg4-Launcher-SWI133",
+      "tipo": "json",
+      "per": [
+        "SWI133"
+      ]
+    },
+    {
+      "id": "clima",
+      "nome": "MG4 Clima",
+      "repo": "ernestomicco2026-cell/HVAC-Clima-MG4",
+      "tipo": "json",
+      "chiave": "MG4Clima",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ]
+    },
+    {
+      "id": "voice",
+      "beta": true,
+      "nome": "MG4 Voice",
+      "repo": "ernestomicco2026-cell/Mg4-Voice",
+      "tipo": "cartella",
+      "file": "^MG4Voice-(.+)\\.apk$",
+      "per": [
+        "SWI68"
+      ]
+    },
+    {
+      "id": "taskmanager",
+      "nome": "MG4 Task Manager",
+      "repo": "ernestomicco2026-cell/mg4-taskmanager",
+      "tipo": "release",
+      "file": "^MG4-TaskManager-system\\.apk$",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ]
+    },
+    {
+      "id": "games",
+      "beta": true,
+      "nome": "MG4 Games",
+      "repo": "",
+      "tipo": "locale",
+      "versione": "0.5.1",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ],
+      "note": "App e giochi in 8 lingue (si usa la lingua dell'auto). Invio dei log più sicuro tramite server ponte. Icona con i colori MG4."
+    },
+    {
+      "id": "browser",
+      "beta": true,
+      "nome": "MG4 Browser",
+      "repo": "",
+      "tipo": "locale",
+      "versione": "0.1.0",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ],
+      "note": "Versione di prova. Al primo avvio aggiorna il motore web dell'auto (WebView 66 -> 138, circa 240 MB, una volta sola): meglio ad auto ferma e con una buona connessione. Dopo l'aggiornamento conviene riavviare l'infotainment."
+    },
+    {
+      "id": "radiofix",
+      "nascosta": true,
+      "nome": "MG4 Radio Fix (prova v1.6)",
+      "repo": "",
+      "tipo": "locale",
+      "versione": "1.0.0_EH32_SOP_2502201114-radiofix7",
+      "per": [
+        "SWI68"
+      ],
+      "richiede": {
+        "pacchetto": "com.saicmotor.service.radio",
+        "versione_inizia": "1.0.0_EH32_SOP_2502201114"
+      },
+      "note": "PROVA v1.6, solo SWI68 R69/R73: AF in FM. Dopo l'installazione riavvia l'unita' (Home premuto per circa 20 s)."
+    },
+    {
+      "id": "store",
+      "nome": "Store",
+      "repo": "ernestomicco2026-cell/Store",
+      "tipo": "json",
+      "per": [
+        "SWI68",
+        "SWI69",
+        "SWI132",
+        "SWI133"
+      ]
+    }
   ]
 }
