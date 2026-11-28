@@ -95,14 +95,14 @@
       "nome": "MG4 Browser",
       "repo": "",
       "tipo": "locale",
-      "versione": "0.1.0",
+      "versione": "0.2.0",
       "per": [
         "SWI68",
         "SWI69",
         "SWI132",
         "SWI133"
       ],
-      "note": "Versione di prova. Al primo avvio aggiorna il motore web dell'auto (WebView 66 -> 138, circa 240 MB, una volta sola): meglio ad auto ferma e con una buona connessione. Dopo l'aggiornamento conviene riavviare l'infotainment."
+      "note": "Novità: log automatici in caso di problemi (anonimi, si possono spegnere) e pagine che si ricaricano da sole se il motore web si chiude. Al primo avvio aggiorna il motore web dell'auto (WebView 66 -> 138, circa 240 MB, una volta sola): meglio ad auto ferma e con una buona connessione. Dopo l'aggiornamento conviene riavviare l'infotainment."
     },
     {
       "id": "radiofix",
