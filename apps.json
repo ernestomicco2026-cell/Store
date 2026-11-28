@@ -158,13 +158,13 @@
     },
     {
       "id": "browser",
-      "versione": "0.1.0",
-      "file": "apk/browser/MG4Browser-0.1.0.apk",
-      "dimensione": 117227,
-      "sha256": "bbd5402a98c51285c2d827ed00907616de846bf7a894e844fed3445f9d03c392",
-      "note": "Versione di prova. Al primo avvio aggiorna il motore web dell'auto (WebView 66 -> 138, circa 240 MB, una volta sola): meglio ad auto ferma e con una buona connessione. Dopo l'aggiornamento conviene riavviare l'infotainment.",
+      "versione": "0.2.0",
+      "file": "apk/browser/MG4Browser-0.2.0.apk",
+      "dimensione": 137777,
+      "sha256": "a0072f86e43357f9186a9c676ff8021ac1a9e356298a72eda86aa9ec5a1d072c",
+      "note": "Novità: log automatici in caso di problemi (anonimi, si possono spegnere) e pagine che si ricaricano da sole se il motore web si chiude. Al primo avvio aggiorna il motore web dell'auto (WebView 66 -> 138, circa 240 MB, una volta sola): meglio ad auto ferma e con una buona connessione. Dopo l'aggiornamento conviene riavviare l'infotainment.",
       "pacchetto": "com.mg4.browser",
-      "codice_versione": 1,
+      "codice_versione": 2,
       "nome": "MG4 Browser",
       "per": [
         "SWI68",
@@ -175,7 +175,7 @@
       "repo": "",
       "beta": true,
       "icona": "icone/browser.png",
-      "icona_da": "apk:bbd5402a98c51285c2d827ed00907616de846bf7a894e844fed3445f9d03c392",
+      "icona_da": "apk:a0072f86e43357f9186a9c676ff8021ac1a9e356298a72eda86aa9ec5a1d072c",
       "icona_sha": "653047d14b65a8a5"
     },
     {
