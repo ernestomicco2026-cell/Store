@@ -24,6 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # sempre l'ultima versione di main (non quella del momento in cui il controllo e' stato messo in coda)
+          ref: main
           # extra/ contiene file grandi (WebView per MG4 Browser) che qui non servono: non si scaricano
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -40,13 +42,27 @@ jobs:
         run: python3 tools/aggiorna.py
 
       - name: Salva le novita'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git add -A apk icone apps.json
-          if git diff --cached --quiet; then
-            echo "Nessuna novita'"
-            exit 0
-          fi
           git config user.name "ernestomicco2026-cell"
           git config user.email "ernesto.micco@gmail.com"
-          git commit -m "Aggiornamento"
-          git push
+          # se intanto qualcun altro ha caricato qualcosa su main (un altro controllo, una chat), il salvataggio
+          # verrebbe rifiutato: si riparte dall'ultima versione, si rifa' il controllo e si riprova (fino a 3 volte)
+          for tentativo in 1 2 3; do
+            git add -A apk icone apps.json
+            if git diff --cached --quiet; then
+              echo "Nessuna novita'"
+              exit 0
+            fi
+            git commit -q -m "Aggiornamento"
+            if git push; then
+              exit 0
+            fi
+            echo "main e' cambiato nel frattempo: riallineo e rifaccio il controllo (tentativo $tentativo)"
+            git fetch -q origin main
+            git reset -q --hard origin/main
+            python3 tools/aggiorna.py
+          done
+          echo "Salvataggio non riuscito dopo 3 tentativi"
+          exit 1
