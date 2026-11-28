@@ -136,13 +136,13 @@
     },
     {
       "id": "games",
-      "versione": "0.5.0",
-      "file": "apk/games/MG4Games-0.5.0.apk",
-      "dimensione": 3146041,
-      "sha256": "0227de93eea6d8f9cc40184f046c58962c1be5de41c12c8eac7d8ee0c65c3792",
-      "note": "Quattro giochi nuovi nel catalogo: Kart elettrico e Arena laser in 3D (serve una WebView aggiornata), Quiz AI e Avventura illustrata con l'intelligenza artificiale (servono internet). Pad Bluetooth collegato direttamente dall'app (sperimentale).",
+      "versione": "0.5.1",
+      "file": "apk/games/MG4Games-0.5.1.apk",
+      "dimensione": 3279179,
+      "sha256": "363706d9c471462ede5f8d47d45e40c1625129f93ef9a99e409868b24c0f92ac",
+      "note": "App e giochi in 8 lingue (si usa la lingua dell'auto). Invio dei log più sicuro tramite server ponte. Icona con i colori MG4.",
       "pacchetto": "com.mg4.games",
-      "codice_versione": 22,
+      "codice_versione": 23,
       "nome": "MG4 Games",
       "per": [
         "SWI68",
@@ -153,8 +153,8 @@
       "repo": "",
       "beta": true,
       "icona": "icone/games.png",
-      "icona_da": "apk:0227de93eea6d8f9cc40184f046c58962c1be5de41c12c8eac7d8ee0c65c3792",
-      "icona_sha": "029efb7ce7b715ca"
+      "icona_da": "apk:363706d9c471462ede5f8d47d45e40c1625129f93ef9a99e409868b24c0f92ac",
+      "icona_sha": "e44b8a0b2edd823e"
     },
     {
       "id": "browser",
